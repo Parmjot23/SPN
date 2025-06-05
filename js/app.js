@@ -66,6 +66,60 @@ const Hero = () => {
   );
 };
 
+const Counter = ({ end, start, suffix }) => {
+  const [count, setCount] = React.useState(0);
+  React.useEffect(() => {
+    if (!start) return;
+    let current = 0;
+    const increment = Math.ceil(end / 50);
+    const id = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        current = end;
+        clearInterval(id);
+      }
+      setCount(current);
+    }, 40);
+    return () => clearInterval(id);
+  }, [start, end]);
+  return <div className="text-3xl font-bold text-blue-600">{count}{suffix}</div>;
+};
+
+const StatsCounter = () => {
+  const [start, setStart] = React.useState(false);
+  const ref = React.useRef(null);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setStart(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.4 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const stats = [
+    { label: 'Loads Delivered', end: 10000, suffix: '+' },
+    { label: 'Terminals', end: 3, suffix: '' },
+    { label: 'Employees', end: 20, suffix: '+' },
+  ];
+
+  return (
+    <div ref={ref} className="bg-gray-50 py-8 grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      {stats.map((s) => (
+        <div key={s.label} className="text-center">
+          <Counter end={s.end} start={start} suffix={s.suffix} />
+          <p className="mt-2 font-semibold">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Home = () => (
   <div>
     <Hero />
@@ -73,6 +127,7 @@ const Home = () => (
       <h2 className="text-2xl font-semibold mb-4">Reliable Trucking and Logistics Services</h2>
       <p className="max-w-xl mx-auto">We provide freight transportation, warehousing and supply chain management solutions.</p>
     </section>
+    <StatsCounter />
     <ContactForm />
   </div>
 );
@@ -167,6 +222,48 @@ const NavLink = ({ to, children }) => (
   <Link className="text-white hover:text-gray-200" to={to}>{children}</Link>
 );
 
+const Footer = () => (
+  <footer className="bg-gray-800 text-white mt-8">
+    <div className="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6">
+      <div>
+        <h3 className="font-semibold mb-2">Navigation</h3>
+        <ul className="space-y-1">
+          <li><NavLink to="/">Home</NavLink></li>
+          <li><NavLink to="/about">About</NavLink></li>
+          <li><NavLink to="/services">Services</NavLink></li>
+          <li><NavLink to="/fleet">Fleet</NavLink></li>
+          <li><NavLink to="/careers">Careers</NavLink></li>
+          <li><NavLink to="/contact">Contact</NavLink></li>
+        </ul>
+      </div>
+      <div>
+        <h3 className="font-semibold mb-2">Follow Us</h3>
+        <div className="flex space-x-4 text-xl">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="Instagram">📸</a>
+        </div>
+      </div>
+      <div className="md:col-span-1 col-span-2">
+        <h3 className="font-semibold mb-2">Sponsors</h3>
+        <div className="overflow-hidden">
+          <div className="flex space-x-8 animate-scroll">
+            <span>🚚</span>
+            <span>🏭</span>
+            <span>🛣️</span>
+            <span>🚦</span>
+            <span>🔧</span>
+            <span>⛽</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="text-center py-4 border-t border-gray-700">
+      <p>© {new Date().getFullYear()} SPN Logistics. Site by <a href="https://www.madebyparm.com" className="text-blue-400">madebyparm</a>.</p>
+    </div>
+  </footer>
+);
+
 const Layout = ({ children }) => (
   <div>
     <nav className="bg-gray-800 text-white p-4 flex space-x-4">
@@ -178,6 +275,7 @@ const Layout = ({ children }) => (
       <NavLink to="/contact">Contact</NavLink>
     </nav>
     {children}
+    <Footer />
   </div>
 );
 
