@@ -1,99 +1,53 @@
-// Minimal router implementation to avoid external React Router dependency
-const RouterContext = React.createContext();
-
-function Router({ children }) {
-  const [path, setPath] = React.useState(window.location.pathname);
-
-  React.useEffect(() => {
-    const onPop = () => setPath(window.location.pathname);
-    window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
-  }, []);
-
-  const navigate = (to) => {
-    window.history.pushState({}, '', to);
-    setPath(to);
-  };
-
-  return (
-    <RouterContext.Provider value={{ path, navigate }}>
-      {children}
-    </RouterContext.Provider>
-  );
-}
-
-function Routes({ children }) {
-  const { path } = React.useContext(RouterContext);
-  let element = null;
-  React.Children.forEach(children, (child) => {
-    if (!element && child.props.path === path) {
-      element = child.props.element;
-    }
-  });
-  return element;
-}
-
-function Route() {
-  return null;
-}
-
-function Link({ to, children, className }) {
-  const { navigate } = React.useContext(RouterContext);
-  const handleClick = (e) => {
-    e.preventDefault();
-    navigate(to);
-  };
-  return (
-    <a href={to} className={className} onClick={handleClick}>
-      {children}
-    </a>
-  );
-}
+const {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  NavLink: RouterNavLink,
+} = ReactRouterDOM;
 
 // initialize EmailJS
 window.emailjs && emailjs.init('YOUR_PUBLIC_KEY');
 
-const Hero = () => {
-  React.useEffect(() => {
-    if (window.gsap) {
-      gsap.from('#heroText', { opacity: 0, y: -50, duration: 1 });
-    }
-  }, []);
-  return (
-    <section className="relative h-screen overflow-hidden">
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="https://assets.mixkit.co/videos/preview/mixkit-large-truck-riding-down-a-highway-10020-large.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-        <h1 id="heroText" className="text-white text-5xl font-bold">SPN Logistics</h1>
-      </div>
-    </section>
-  );
-};
+const { motion, useInView } = Motion;
 
-const Counter = ({ end, start, suffix }) => {
-  const [count, setCount] = React.useState(0);
-  React.useEffect(() => {
-    if (!start) return;
-    let current = 0;
-    const increment = Math.ceil(end / 50);
-    const id = setInterval(() => {
-      current += increment;
-      if (current >= end) {
-        current = end;
-        clearInterval(id);
-      }
-      setCount(current);
-    }, 40);
-    return () => clearInterval(id);
-  }, [start, end]);
-  return <div className="text-3xl font-bold text-blue-600">{count}{suffix}</div>;
-};
+const Hero = () => (
+  <section className="relative h-screen overflow-hidden">
+    <video
+      className="absolute inset-0 w-full h-full object-cover"
+      src="https://assets.mixkit.co/videos/preview/mixkit-large-truck-riding-down-a-highway-10020-large.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+      <motion.h1
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-white text-5xl font-bold"
+      >
+        SPN Logistics
+      </motion.h1>
+    </div>
+  </section>
+);
+
+const { CountUp } = ReactCountUp;
+
+const Counter = ({ end, start, suffix }) => (
+  <CountUp
+    start={start ? 0 : null}
+    end={start ? end : 0}
+    duration={2}
+    suffix={suffix}
+  >
+    {({ countUpRef }) => (
+      <div ref={countUpRef} className="text-3xl font-bold text-blue-600" />
+    )}
+  </CountUp>
+);
 
 const StatsCounter = () => {
   const [start, setStart] = React.useState(false);
@@ -113,18 +67,24 @@ const StatsCounter = () => {
   }, []);
 
   const stats = [
-    { label: 'Loads Delivered', end: 10000, suffix: '+' },
-    { label: 'Terminals', end: 3, suffix: '' },
-    { label: 'Employees', end: 20, suffix: '+' },
+    { label: 'Trucks in Fleet', end: 25, suffix: '+' },
+    { label: 'Deliveries Completed', end: 15000, suffix: '+' },
+    { label: 'Years of Operation', end: 10, suffix: '+' },
+    { label: 'Customer Satisfaction', end: 98, suffix: '%' },
   ];
 
   return (
-    <div ref={ref} className="bg-gray-50 py-8 grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+    <div ref={ref} className="bg-gray-50 py-8 grid sm:grid-cols-4 gap-8 max-w-5xl mx-auto">
       {stats.map((s) => (
-        <div key={s.label} className="text-center">
+        <motion.div
+          key={s.label}
+          initial={{ opacity: 0, y: 20 }}
+          animate={start ? { opacity: 1, y: 0 } : {}}
+          className="text-center"
+        >
           <Counter end={s.end} start={start} suffix={s.suffix} />
           <p className="mt-2 font-semibold">{s.label}</p>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
@@ -212,42 +172,42 @@ const About = () => (
   </div>
 );
 
+const {
+  FaTruckMoving,
+  FaBolt,
+  FaTruckLoading,
+  FaWarehouse,
+  FaBoxes,
+} = ReactIcons.Fa;
+
 const services = [
-  { title: 'Freight Management', icon: '🚚', desc: 'Complete freight brokerage and management.' },
-  { title: 'Express Delivery', icon: '⚡', desc: 'Time-critical shipments across Canada.' },
-  { title: 'Specialized Transport', icon: '🛣️', desc: 'Oversized and temperature controlled loads.' },
-  { title: 'Warehousing', icon: '🏢', desc: 'Secure storage facilities.' },
-  { title: 'Logistics Solutions', icon: '📦', desc: 'End-to-end supply chain management.' }
+  { title: "Freight Management", icon: <FaTruckMoving />, desc: "Complete freight brokerage and management." },
+  { title: "Express Delivery", icon: <FaBolt />, desc: "Time-critical shipments across Canada." },
+  { title: "Specialized Transport", icon: <FaTruckLoading />, desc: "Oversized and temperature-controlled loads." },
+  { title: "Warehousing", icon: <FaWarehouse />, desc: "Secure storage facilities." },
+  { title: "Logistics Solutions", icon: <FaBoxes />, desc: "End-to-end supply chain management." },
 ];
 
-const ServiceAccordion = ({ service }) => {
-  const [open, setOpen] = React.useState(false);
-  return (
-    <div className="border-b">
-      <button
-        type="button"
-        className="w-full flex justify-between items-center p-4 text-left"
-        onClick={() => setOpen((o) => !o)}
-      >
-        <span className="font-semibold flex items-center space-x-2">
-          <span>{service.icon}</span>
-          <span>{service.title}</span>
-        </span>
-        <span>{open ? '-' : '+'}</span>
-      </button>
-      {open && <div className="p-4 bg-gray-50">{service.desc}</div>}
-    </div>
-  );
-};
+const ServiceAccordion = ({ service, eventKey }) => (
+  <ReactBootstrap.Accordion.Item eventKey={eventKey}>
+    <ReactBootstrap.Accordion.Header>
+      <span className="flex items-center space-x-2">
+        <span>{service.icon}</span>
+        <span>{service.title}</span>
+      </span>
+    </ReactBootstrap.Accordion.Header>
+    <ReactBootstrap.Accordion.Body>{service.desc}</ReactBootstrap.Accordion.Body>
+  </ReactBootstrap.Accordion.Item>
+);
 
 const Services = () => (
   <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 p-8">
     <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
-    <div className="max-w-2xl mx-auto">
-      {services.map((s) => (
-        <ServiceAccordion key={s.title} service={s} />
+    <ReactBootstrap.Accordion className="max-w-2xl mx-auto">
+      {services.map((s, idx) => (
+        <ServiceAccordion key={s.title} service={s} eventKey={`${idx}`} />
       ))}
-    </div>
+    </ReactBootstrap.Accordion>
   </div>
 );
 
@@ -273,6 +233,29 @@ const jobs = [
   { id: 'mechanic', title: 'Mechanic', desc: 'Maintain our fleet of trucks and trailers.' }
 ];
 
+const employeeTestimonials = [
+  { q: 'What do you like about working at SPN?', a: 'Great team culture and modern equipment.' },
+  { q: 'Do you offer training?', a: 'Yes, continuous driver training is provided.' },
+];
+
+const CareerFaq = () => (
+  <div className="mt-8">
+    <h3 className="text-xl font-semibold mb-2">Employee Insights</h3>
+    {employeeTestimonials.map((t, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="bg-white p-4 rounded shadow mb-2"
+      >
+        <p className="font-semibold">{t.q}</p>
+        <p>{t.a}</p>
+      </motion.div>
+    ))}
+  </div>
+);
+
 const Careers = () => (
   <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 p-8">
     <h2 className="text-2xl font-semibold mb-4">Careers</h2>
@@ -288,6 +271,7 @@ const Careers = () => (
         </details>
       ))}
     </div>
+    <CareerFaq />
   </div>
 );
 
@@ -313,6 +297,7 @@ const Contact = () => (
     <p className="mb-4">
       <a href="mailto:info@spnlogistics.com" className="text-blue-600 underline">info@spnlogistics.com</a>
     </p>
+    <p className="mb-4 font-semibold">Quick responses and 24/7 availability guaranteed.</p>
     <iframe className="w-full h-64 mb-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2792.6839970458055!2d-74.07331958444191!3d45.342130779099336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDIwJzMxLjciTiA3NMKwMDQnMDguMCJX!5e0!3m2!1sen!2sca!4v1710240265604" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <ContactForm />
   </div>
@@ -339,19 +324,26 @@ function ContactForm({ formId = 'contact' }) {
       <input required type="email" name="email" placeholder="Email" className="w-full p-2 mb-2 border" />
       {allowFile && <input type="file" name="resume" className="w-full p-2 mb-2 border" />}
       <textarea required name="message" placeholder="Message" className="w-full p-2 mb-2 border"></textarea>
-      <button className="bg-blue-600 text-white px-4 py-2" type="submit">Send</button>
+      <button className="bg-blue-600 text-white px-4 py-2" type="submit">
+        {allowFile ? 'Apply Now' : 'Send'}
+      </button>
       {status && <p className="mt-2 text-sm">{status}</p>}
     </form>
   );
 }
 
 const NavLink = ({ to, children, className = "" }) => (
-  <Link
-    className={`block md:inline-block px-3 py-2 rounded text-gray-800 transition-colors duration-200 hover:bg-blue-600 hover:text-white ${className}`}
+  <RouterNavLink
     to={to}
+    end
+    className={({ isActive }) =>
+      `block md:inline-block px-3 py-2 rounded transition-colors duration-200 ${
+        isActive ? 'bg-blue-600 text-white' : 'text-gray-800 hover:bg-blue-600 hover:text-white'
+      } ${className}`
+    }
   >
     {children}
-  </Link>
+  </RouterNavLink>
 );
 
 const Footer = () => (
@@ -423,7 +415,7 @@ const Layout = ({ children }) => {
     <div>
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur shadow-md">
         <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
-          <h1 className="text-xl font-bold">SPN Logistics</h1>
+          <Link to="/" className="text-xl font-bold">SPN Logistics</Link>
           <button className="md:hidden" onClick={toggle} aria-label="Menu">
             <svg
               className="w-6 h-6"
@@ -452,7 +444,7 @@ const Layout = ({ children }) => {
 };
 
 const App = () => (
-  <Router>
+  <BrowserRouter>
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -464,7 +456,7 @@ const App = () => (
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Layout>
-  </Router>
+  </BrowserRouter>
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
