@@ -1,6 +1,4 @@
-import React from 'https://esm.sh/react@18.2.0';
-import ReactDOM from 'https://esm.sh/react-dom@18.2.0/client';
-import { BrowserRouter as Router, Routes, Route, Link } from 'https://esm.sh/react-router-dom@6.18.0';
+const { BrowserRouter: Router, Routes, Route, Link } = ReactRouterDOM;
 
 // initialize EmailJS
 window.emailjs && emailjs.init('YOUR_PUBLIC_KEY');
