@@ -8,7 +8,8 @@
     NavLink: RouterNavLink
   } = window.ReactRouterDOM || {};
   window.emailjs && emailjs.init("YOUR_PUBLIC_KEY");
-  var { motion, useInView } = Motion;
+  var { motion, useInView } =
+    window["framer-motion"] || window.framerMotion || window.Motion || {};
   var Hero = () => /* @__PURE__ */ React.createElement("section", { className: "relative h-screen overflow-hidden" }, /* @__PURE__ */ React.createElement(
     "video",
     {
