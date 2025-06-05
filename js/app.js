@@ -228,8 +228,8 @@ const NavLink = ({ to, children }) => (
 );
 
 const Footer = () => (
-  <footer className="bg-gray-800 text-white mt-8">
-    <div className="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6">
+  <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-8">
+    <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
       <div>
         <h3 className="font-semibold mb-2">Navigation</h3>
         <ul className="space-y-1">
@@ -244,21 +244,27 @@ const Footer = () => (
       <div>
         <h3 className="font-semibold mb-2">Follow Us</h3>
         <div className="flex space-x-4 text-xl">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Twitter">🐦</a>
-          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Facebook" className="hover:text-blue-400">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="Twitter" className="hover:text-blue-400">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="#" aria-label="Instagram" className="hover:text-blue-400">
+            <i className="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
       <div className="md:col-span-1 col-span-2">
         <h3 className="font-semibold mb-2">Sponsors</h3>
         <div className="overflow-hidden">
-          <div className="flex space-x-8 animate-scroll">
-            <span>🚚</span>
-            <span>🏭</span>
-            <span>🛣️</span>
-            <span>🚦</span>
-            <span>🔧</span>
-            <span>⛽</span>
+          <div className="flex space-x-8 text-2xl animate-scroll">
+            <i className="fas fa-truck hover:text-yellow-300"></i>
+            <i className="fas fa-warehouse hover:text-yellow-300"></i>
+            <i className="fas fa-road hover:text-yellow-300"></i>
+            <i className="fas fa-traffic-light hover:text-yellow-300"></i>
+            <i className="fas fa-tools hover:text-yellow-300"></i>
+            <i className="fas fa-gas-pump hover:text-yellow-300"></i>
           </div>
         </div>
       </div>
