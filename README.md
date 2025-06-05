@@ -7,12 +7,12 @@ EmailJS delivers form submissions.
 
 ## Features and Pages
 
-- **Home** – hero banner with fade‑in effect and a quick contact form.
-- **About** – background on the company and its mission.
-- **Services** – list of trucking, warehousing and logistics options.
+- **Home** – full screen video hero, quick contact form and previews of services, fleet and testimonials.
+- **About** – company history, mission, values and achievements.
+- **Services** – interactive cards outlining freight management, express delivery and more.
 - **Fleet** – photos and descriptions of available equipment.
-- **Careers** – application form for job inquiries.
-- **Contact** – address, map and another contact form.
+- **Careers** – expandable job listings with file upload forms.
+- **Contact** – easy-to-use form, clickable phone/email and an embedded map.
 
 All forms (on the Home, Careers and Contact pages) use EmailJS. Replace the
 `YOUR_PUBLIC_KEY`, `YOUR_SERVICE_ID` and `YOUR_TEMPLATE_ID` placeholders in

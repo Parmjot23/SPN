@@ -60,8 +60,18 @@ const Hero = () => {
     }
   }, []);
   return (
-    <section className="bg-gradient-to-br from-blue-700 via-blue-500 to-blue-700 h-96 flex items-center justify-center">
-      <h1 id="heroText" className="text-white text-4xl font-bold bg-black bg-opacity-50 p-4 rounded">SPN Logistics</h1>
+    <section className="relative h-screen overflow-hidden">
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="https://assets.mixkit.co/videos/preview/mixkit-large-truck-riding-down-a-highway-10020-large.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <h1 id="heroText" className="text-white text-5xl font-bold">SPN Logistics</h1>
+      </div>
     </section>
   );
 };
@@ -120,6 +130,52 @@ const StatsCounter = () => {
   );
 };
 
+const HomeServicesPreview = () => (
+  <section className="p-8 bg-white">
+    <h3 className="text-xl font-semibold mb-4 text-center">Our Services</h3>
+    <div className="grid sm:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      {services.map((s) => (
+        <div key={s.title} className="bg-gray-50 p-4 rounded shadow-sm">
+          <div className="text-3xl mb-2 text-center">{s.icon}</div>
+          <h4 className="font-semibold text-center">{s.title}</h4>
+          <p className="text-sm text-center">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+const FleetPreview = () => (
+  <section className="p-8 bg-gray-50">
+    <h3 className="text-xl font-semibold mb-4 text-center">Our Fleet</h3>
+    <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+      <img className="rounded shadow" src="https://images.unsplash.com/photo-1565513123283-fbc0a0aaddc1?auto=format&fit=crop&w=800&q=80" alt="Truck" />
+      <img className="rounded shadow" src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80" alt="Trailer" />
+    </div>
+  </section>
+);
+
+const Testimonials = () => {
+  const items = [
+    { quote: 'Great service and on-time deliveries!', author: 'Julie M.' },
+    { quote: 'Professional drivers and clean equipment.', author: 'Robert T.' },
+    { quote: 'Our go-to carrier for specialized loads.', author: 'LogiCorp' },
+  ];
+  return (
+    <section className="p-8 bg-white">
+      <h3 className="text-xl font-semibold mb-4 text-center">Testimonials</h3>
+      <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        {items.map((t) => (
+          <div key={t.author} className="bg-gray-50 p-4 rounded shadow-sm text-center">
+            <p className="italic mb-2">"{t.quote}"</p>
+            <p className="font-semibold">- {t.author}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const Home = () => (
   <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
     <Hero />
@@ -127,34 +183,69 @@ const Home = () => (
       <h2 className="text-2xl font-semibold mb-4">Reliable Trucking and Logistics Services</h2>
       <p className="max-w-xl mx-auto">We provide freight transportation, warehousing and supply chain management solutions.</p>
     </section>
+    <HomeServicesPreview />
+    <FleetPreview />
+    <Testimonials />
     <StatsCounter />
     <ContactForm />
   </div>
 );
 
 const About = () => (
-  <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 p-8">
+  <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 p-8 space-y-6">
     <h2 className="text-2xl font-semibold mb-4">About Us</h2>
-    <p>SPN Logistics has been serving customers in Quebec with reliable trucking solutions. Our mission is to deliver shipments safely and on time.</p>
+    <p className="max-w-3xl">Founded in 2010, SPN Logistics began with a single truck and a big dream. Today we operate a modern fleet serving customers across Quebec and Ontario.</p>
+    <div className="grid md:grid-cols-3 gap-4">
+      <div className="bg-white p-4 rounded shadow">
+        <h3 className="font-semibold mb-2">Our Mission</h3>
+        <p>To transport freight safely and efficiently while providing outstanding customer service.</p>
+      </div>
+      <div className="bg-white p-4 rounded shadow">
+        <h3 className="font-semibold mb-2">Values</h3>
+        <p>Integrity, reliability and innovation drive everything we do.</p>
+      </div>
+      <div className="bg-white p-4 rounded shadow">
+        <h3 className="font-semibold mb-2">Achievements</h3>
+        <p>Recognized as a top regional carrier and trusted partner for many leading shippers.</p>
+      </div>
+    </div>
   </div>
 );
 
 const services = [
-  { title: 'Freight Transportation', icon: '🚚', desc: 'Efficient truckload and LTL services.' },
+  { title: 'Freight Management', icon: '🚚', desc: 'Complete freight brokerage and management.' },
+  { title: 'Express Delivery', icon: '⚡', desc: 'Time-critical shipments across Canada.' },
+  { title: 'Specialized Transport', icon: '🛣️', desc: 'Oversized and temperature controlled loads.' },
   { title: 'Warehousing', icon: '🏢', desc: 'Secure storage facilities.' },
   { title: 'Logistics Solutions', icon: '📦', desc: 'End-to-end supply chain management.' }
 ];
 
+const ServiceAccordion = ({ service }) => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div className="border-b">
+      <button
+        type="button"
+        className="w-full flex justify-between items-center p-4 text-left"
+        onClick={() => setOpen((o) => !o)}
+      >
+        <span className="font-semibold flex items-center space-x-2">
+          <span>{service.icon}</span>
+          <span>{service.title}</span>
+        </span>
+        <span>{open ? '-' : '+'}</span>
+      </button>
+      {open && <div className="p-4 bg-gray-50">{service.desc}</div>}
+    </div>
+  );
+};
+
 const Services = () => (
   <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 p-8">
     <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="max-w-2xl mx-auto">
       {services.map((s) => (
-        <div key={s.title} className="bg-white p-4 rounded shadow">
-          <div className="text-4xl mb-2">{s.icon}</div>
-          <h3 className="font-semibold">{s.title}</h3>
-          <p>{s.desc}</p>
-        </div>
+        <ServiceAccordion key={s.title} service={s} />
       ))}
     </div>
   </div>
@@ -176,11 +267,27 @@ const Fleet = () => (
   </div>
 );
 
+const jobs = [
+  { id: 'driver', title: 'Truck Driver', desc: 'Operate late-model tractors on regional routes.' },
+  { id: 'dispatcher', title: 'Dispatcher', desc: 'Coordinate shipments and support our drivers.' },
+  { id: 'mechanic', title: 'Mechanic', desc: 'Maintain our fleet of trucks and trailers.' }
+];
+
 const Careers = () => (
   <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 p-8">
     <h2 className="text-2xl font-semibold mb-4">Careers</h2>
-    <p className="mb-4">Join our team! Submit your application below.</p>
-    <ContactForm formId="careers" />
+    <p className="mb-6">Join our team! Click a position to apply.</p>
+    <div className="max-w-2xl mx-auto">
+      {jobs.map((j) => (
+        <details key={j.id} className="mb-4 bg-white rounded shadow">
+          <summary className="cursor-pointer p-4 font-semibold">{j.title}</summary>
+          <div className="p-4 border-t">
+            <p className="mb-4">{j.desc}</p>
+            <ContactForm formId={`career_${j.id}`} />
+          </div>
+        </details>
+      ))}
+    </div>
   </div>
 );
 
@@ -195,7 +302,17 @@ const Solutions = () => (
 const Contact = () => (
   <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 p-8">
     <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-    <p className="mb-4">1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
+    <p className="mb-2">
+      <a href="https://maps.google.com/?q=1059%20Chem.%20Legault%2C%20Les%20C%C3%A8dres%2C%20QC" className="text-blue-600 underline">
+        1059 Chem. Legault, Les Cèdres, QC J7T 1N8
+      </a>
+    </p>
+    <p className="mb-2">
+      <a href="tel:+14506313677" className="text-blue-600 underline">(450) 631-3677</a>
+    </p>
+    <p className="mb-4">
+      <a href="mailto:info@spnlogistics.com" className="text-blue-600 underline">info@spnlogistics.com</a>
+    </p>
     <iframe className="w-full h-64 mb-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2792.6839970458055!2d-74.07331958444191!3d45.342130779099336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDIwJzMxLjciTiA3NMKwMDQnMDguMCJX!5e0!3m2!1sen!2sca!4v1710240265604" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <ContactForm />
   </div>
@@ -203,22 +320,24 @@ const Contact = () => (
 
 function ContactForm({ formId = 'contact' }) {
   const [status, setStatus] = React.useState('');
+  const allowFile = formId.startsWith('career');
 
   function handleSubmit(e) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
     if (window.emailjs) {
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', data)
+      emailjs
+        .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target)
         .then(() => setStatus('Message sent!'))
         .catch(() => setStatus('Failed to send'));
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 bg-white rounded shadow mt-8">
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 bg-white rounded shadow mt-8" encType="multipart/form-data">
       <input type="hidden" name="form" value={formId} />
       <input required name="name" placeholder="Name" className="w-full p-2 mb-2 border" />
       <input required type="email" name="email" placeholder="Email" className="w-full p-2 mb-2 border" />
+      {allowFile && <input type="file" name="resume" className="w-full p-2 mb-2 border" />}
       <textarea required name="message" placeholder="Message" className="w-full p-2 mb-2 border"></textarea>
       <button className="bg-blue-600 text-white px-4 py-2" type="submit">Send</button>
       {status && <p className="mt-2 text-sm">{status}</p>}
