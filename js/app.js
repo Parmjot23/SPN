@@ -121,7 +121,7 @@ const StatsCounter = () => {
 };
 
 const Home = () => (
-  <div>
+  <div className="min-h-screen bg-cover bg-center" style={{backgroundImage: "url(https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80)"}}>
     <Hero />
     <section className="p-8 text-center">
       <h2 className="text-2xl font-semibold mb-4">Reliable Trucking and Logistics Services</h2>
@@ -133,7 +133,7 @@ const Home = () => (
 );
 
 const About = () => (
-  <div className="p-8">
+  <div className="min-h-screen bg-cover bg-center p-8" style={{backgroundImage: "url(https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1600&q=80)"}}>
     <h2 className="text-2xl font-semibold mb-4">About Us</h2>
     <p>SPN Logistics has been serving customers in Quebec with reliable trucking solutions. Our mission is to deliver shipments safely and on time.</p>
   </div>
@@ -146,7 +146,7 @@ const services = [
 ];
 
 const Services = () => (
-  <div className="p-8">
+  <div className="min-h-screen bg-cover bg-center p-8" style={{backgroundImage: "url(https://images.unsplash.com/photo-1581091012184-155a876cc194?auto=format&fit=crop&w=1600&q=80)"}}>
     <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {services.map((s) => (
@@ -161,7 +161,7 @@ const Services = () => (
 );
 
 const Fleet = () => (
-  <div className="p-8">
+  <div className="min-h-screen bg-cover bg-center p-8" style={{backgroundImage: "url(https://images.unsplash.com/photo-1565513123283-fbc0a0aaddc1?auto=format&fit=crop&w=1600&q=80)"}}>
     <h2 className="text-2xl font-semibold mb-4">Fleet Information</h2>
     <div className="grid md:grid-cols-2 gap-4">
       <div className="bg-white rounded shadow">
@@ -177,7 +177,7 @@ const Fleet = () => (
 );
 
 const Careers = () => (
-  <div className="p-8">
+  <div className="min-h-screen bg-cover bg-center p-8" style={{backgroundImage: "url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80)"}}>
     <h2 className="text-2xl font-semibold mb-4">Careers</h2>
     <p className="mb-4">Join our team! Submit your application below.</p>
     <ContactForm formId="careers" />
@@ -185,7 +185,7 @@ const Careers = () => (
 );
 
 const Contact = () => (
-  <div className="p-8">
+  <div className="min-h-screen bg-cover bg-center p-8" style={{backgroundImage: "url(https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1600&q=80)"}}>
     <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
     <p className="mb-4">1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
     <iframe className="w-full h-64 mb-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2792.6839970458055!2d-74.07331958444191!3d45.342130779099336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDIwJzMxLjciTiA3NMKwMDQnMDguMCJX!5e0!3m2!1sen!2sca!4v1710240265604" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -266,7 +266,8 @@ const Footer = () => (
 
 const Layout = ({ children }) => (
   <div>
-    <nav className="bg-gray-800 text-white p-4 flex space-x-4">
+    <nav className="sticky top-0 z-50 bg-gradient-to-r from-blue-800 to-gray-900 text-white p-4 flex items-center space-x-4">
+      <h1 className="text-xl font-bold mr-4">SPN Logistics</h1>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/about">About</NavLink>
       <NavLink to="/services">Services</NavLink>
