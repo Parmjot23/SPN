@@ -226,9 +226,9 @@ function ContactForm({ formId = 'contact' }) {
   );
 }
 
-const NavLink = ({ to, children }) => (
+const NavLink = ({ to, children, className = "" }) => (
   <Link
-    className="block md:inline-block px-3 py-2 rounded text-gray-800 transition-colors duration-200 hover:bg-blue-600 hover:text-white"
+    className={`block md:inline-block px-3 py-2 rounded text-gray-800 transition-colors duration-200 hover:bg-blue-600 hover:text-white ${className}`}
     to={to}
   >
     {children}
@@ -241,13 +241,13 @@ const Footer = () => (
       <div>
         <h3 className="font-semibold mb-2">Navigation</h3>
         <ul className="space-y-1">
-          <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/about">About</NavLink></li>
-          <li><NavLink to="/services">Services</NavLink></li>
-          <li><NavLink to="/fleet">Fleet</NavLink></li>
-          <li><NavLink to="/careers">Careers</NavLink></li>
-          <li><NavLink to="/solutions">Solutions</NavLink></li>
-          <li><NavLink to="/contact">Contact</NavLink></li>
+          <li><NavLink to="/" className="text-gray-300">Home</NavLink></li>
+          <li><NavLink to="/about" className="text-gray-300">About</NavLink></li>
+          <li><NavLink to="/services" className="text-gray-300">Services</NavLink></li>
+          <li><NavLink to="/fleet" className="text-gray-300">Fleet</NavLink></li>
+          <li><NavLink to="/careers" className="text-gray-300">Careers</NavLink></li>
+          <li><NavLink to="/solutions" className="text-gray-300">Solutions</NavLink></li>
+          <li><NavLink to="/contact" className="text-gray-300">Contact</NavLink></li>
         </ul>
       </div>
       <div>
