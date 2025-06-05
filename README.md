@@ -20,3 +20,17 @@ All forms (on the Home, Careers and Contact pages) use EmailJS. Replace the
 
 Open `index.html` in your browser to view the site. No build step is required as
 the project is entirely static.
+
+## Continuous Deployment with Netlify
+
+The repository includes a minimal `netlify.toml` configuration so the site can
+be deployed directly from its root folder. To enable automatic deployments:
+
+1. Push this code to your Git hosting provider.
+2. In Netlify, create a new site from Git and choose this repository.
+3. Keep the default settings—no build command is needed and the publish
+   directory is `./`.
+4. Update the EmailJS placeholders in `js/app.js` with your own keys before
+   deploying.
+
+Every push to the default branch will trigger a new deployment.
