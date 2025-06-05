@@ -7,6 +7,13 @@
   <title>SPN Logistics</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <style>
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .animate-scroll { animation: scroll 20s linear infinite; }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
   <div id="root"></div>
