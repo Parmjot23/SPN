@@ -1,4 +1,54 @@
-const { BrowserRouter: Router, Routes, Route, Link } = ReactRouterDOM;
+// Minimal router implementation to avoid external React Router dependency
+const RouterContext = React.createContext();
+
+function Router({ children }) {
+  const [path, setPath] = React.useState(window.location.pathname);
+
+  React.useEffect(() => {
+    const onPop = () => setPath(window.location.pathname);
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  const navigate = (to) => {
+    window.history.pushState({}, '', to);
+    setPath(to);
+  };
+
+  return (
+    <RouterContext.Provider value={{ path, navigate }}>
+      {children}
+    </RouterContext.Provider>
+  );
+}
+
+function Routes({ children }) {
+  const { path } = React.useContext(RouterContext);
+  let element = null;
+  React.Children.forEach(children, (child) => {
+    if (!element && child.props.path === path) {
+      element = child.props.element;
+    }
+  });
+  return element;
+}
+
+function Route() {
+  return null;
+}
+
+function Link({ to, children, className }) {
+  const { navigate } = React.useContext(RouterContext);
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate(to);
+  };
+  return (
+    <a href={to} className={className} onClick={handleClick}>
+      {children}
+    </a>
+  );
+}
 
 // initialize EmailJS
 window.emailjs && emailjs.init('YOUR_PUBLIC_KEY');
