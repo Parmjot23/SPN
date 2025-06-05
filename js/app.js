@@ -184,6 +184,14 @@ const Careers = () => (
   </div>
 );
 
+const Solutions = () => (
+  <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-indigo-50 p-8">
+    <h2 className="text-2xl font-semibold mb-4">Technology-Driven Solutions</h2>
+    <p className="mb-2 max-w-xl">Our digital freight network connects shippers with carriers for efficient hauling.</p>
+    <p className="max-w-xl">Real-time tracking and optimized routes ensure your shipments arrive on time.</p>
+  </div>
+);
+
 const Contact = () => (
   <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 p-8">
     <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
@@ -238,6 +246,7 @@ const Footer = () => (
           <li><NavLink to="/services">Services</NavLink></li>
           <li><NavLink to="/fleet">Fleet</NavLink></li>
           <li><NavLink to="/careers">Careers</NavLink></li>
+          <li><NavLink to="/solutions">Solutions</NavLink></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
         </ul>
       </div>
@@ -286,6 +295,7 @@ const Layout = ({ children }) => {
       <NavLink to="/services">Services</NavLink>
       <NavLink to="/fleet">Fleet</NavLink>
       <NavLink to="/careers">Careers</NavLink>
+      <NavLink to="/solutions">Solutions</NavLink>
       <NavLink to="/contact">Contact</NavLink>
     </>
   );
@@ -331,6 +341,7 @@ const App = () => (
         <Route path="/services" element={<Services />} />
         <Route path="/fleet" element={<Fleet />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/solutions" element={<Solutions />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Layout>
