@@ -4,7 +4,7 @@ const {
   Route,
   Link,
   NavLink: RouterNavLink,
-} = ReactRouterDOM;
+} = window.ReactRouterDOM || {};
 
 // initialize EmailJS
 window.emailjs && emailjs.init('YOUR_PUBLIC_KEY');
