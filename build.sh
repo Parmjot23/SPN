@@ -14,6 +14,6 @@ sed -i "s/YOUR_SERVICE_ID/${VITE_EMAILJS_SERVICE}/g" dist/js/app.js
 sed -i "s/YOUR_TEMPLATE_ID/${VITE_EMAILJS_TEMPLATE}/g" dist/js/app.js
 
 # Transpile JSX to plain JavaScript using esbuild
-npx --yes esbuild dist/js/app.js --bundle --outfile=dist/js/app.js --loader:.js=jsx
+npx --yes esbuild dist/js/app.js --bundle --outfile=dist/js/app.js --loader:.js=jsx --allow-overwrite
 
 echo "Build completed. Files are in the dist directory."
