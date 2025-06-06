@@ -1,4 +1,5 @@
 // Minimal router implementation to avoid external React Router dependency
+import React from "react";
 const RouterContext = React.createContext();
 
 function Router({ children }) {
