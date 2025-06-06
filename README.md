@@ -1,36 +1,35 @@
 # SPN Logistics Website
 
-This repository contains a lightweight single page application for SPN Logistics
-located in Les Cèdres, QC. The site loads React and React Router from CDN links
-and uses Tailwind CSS for styling. GSAP powers a small hero animation and
-EmailJS delivers form submissions.
+This repository contains a modern single page application for **SPN Logistics**. The app now uses **Vite**, **React 18** and **Tailwind CSS 3** with GSAP animations and EmailJS forms.
 
 ## Features and Pages
 
-- **Home** – full screen video hero, quick contact form and previews of services, fleet and testimonials.
-- **About** – company history, mission, values and achievements.
-- **Services** – interactive cards outlining freight management, express delivery and more.
-- **Fleet** – photos and descriptions of available equipment.
-- **Careers** – expandable job listings with file upload forms.
-- **Contact** – easy-to-use form, clickable phone/email and an embedded map.
+- **Home** – full screen video hero with Ken Burns effect, service previews and stats counters.
+- **About** – company history, mission and values.
+- **Services** – interactive accordion of offered services.
+- **Fleet** – photo gallery with lightbox.
+- **Careers** – searchable job listings with application forms.
+- **Contact** – contact form and embedded map.
 
-All forms (on the Home, Careers and Contact pages) use EmailJS. Replace the
-`YOUR_PUBLIC_KEY`, `YOUR_SERVICE_ID` and `YOUR_TEMPLATE_ID` placeholders in
-`js/app.js` with your values to enable them.
+A dark mode is available with a toggle in the navigation bar. Scroll triggered animations enhance each section.
 
-Open `index.html` in your browser to view the site. No build step is required as
-the project is entirely static.
+### Setup
 
-## Continuous Deployment with Netlify
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the development server with hot module reloading:
+   ```bash
+   npm run dev
+   ```
+3. Build for production:
+   ```bash
+   npm run build
+   ```
 
-The repository includes a minimal `netlify.toml` configuration so the site can
-be deployed directly from its root folder. To enable automatic deployments:
+EmailJS credentials are provided via `VITE_EMAILJS_KEY`, `VITE_EMAILJS_SERVICE` and `VITE_EMAILJS_TEMPLATE` environment variables during build or development.
 
-1. Push this code to your Git hosting provider.
-2. In Netlify, create a new site from Git and choose this repository.
-3. Keep the default settings—no build command is needed and the publish
-   directory is `./`.
-4. Update the EmailJS placeholders in `js/app.js` with your own keys before
-   deploying.
+## Deployment
 
-Every push to the default branch will trigger a new deployment.
+The site can be deployed on any static host. The included `build.sh` script is used by Netlify to generate the optimized `dist` folder.
