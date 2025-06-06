@@ -9,8 +9,7 @@ const {
 // initialize EmailJS
 window.emailjs && emailjs.init('YOUR_PUBLIC_KEY');
 
-const { motion, useInView } =
-  (window["framer-motion"] || window.framerMotion || window.Motion || {});
+const { motion, useInView } = Motion;
 
 const Hero = () => (
   <section className="relative h-screen overflow-hidden">
