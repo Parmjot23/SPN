@@ -184,14 +184,6 @@ const Home = () => (
       <p className="max-w-xl mx-auto">We provide freight transportation, warehousing and supply chain management solutions.</p>
     </section>
     <HomeServicesPreview />
-    <FleetPreview />
-    <Testimonials />
-    <section className="p-8 bg-gray-50 text-center">
-      <h3 className="text-xl font-semibold mb-2">Why Choose Us?</h3>
-      <p className="max-w-2xl mx-auto">With years of experience and a dedicated team, we ensure shipments are handled with care and delivered on schedule.</p>
-    </section>
-    <StatsCounter />
-    <ContactForm />
   </div>
 );
 
@@ -368,7 +360,7 @@ function ContactForm({ formId = 'contact' }) {
 
 const NavLink = ({ to, children, className = "" }) => (
   <Link
-    className={`block md:inline-block px-3 py-2 rounded text-gray-800 transition-colors duration-200 hover:bg-blue-600 hover:text-white ${className}`}
+    className={`block md:inline-block px-3 py-2 rounded text-gray-200 transition-colors duration-200 hover:bg-blue-600 hover:text-white ${className}`}
     to={to}
   >
     {children}
@@ -377,7 +369,7 @@ const NavLink = ({ to, children, className = "" }) => (
 
 const Footer = () => (
   <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-8">
-    <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
+    <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-6">
       <div>
         <h3 className="font-semibold mb-2">Navigation</h3>
         <ul className="space-y-1">
@@ -403,6 +395,12 @@ const Footer = () => (
             <i className="fab fa-instagram"></i>
           </a>
         </div>
+      </div>
+      <div>
+        <h3 className="font-semibold mb-2">Contact</h3>
+        <p>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
+        <p><a href="tel:+14506313677" className="hover:text-blue-400">(450) 631-3677</a></p>
+        <p><a href="mailto:info@spnlogistics.com" className="hover:text-blue-400">info@spnlogistics.com</a></p>
       </div>
       <div className="md:col-span-1 col-span-2">
         <h3 className="font-semibold mb-2">Sponsors</h3>
