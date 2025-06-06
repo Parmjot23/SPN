@@ -186,6 +186,10 @@ const Home = () => (
     <HomeServicesPreview />
     <FleetPreview />
     <Testimonials />
+    <section className="p-8 bg-gray-50 text-center">
+      <h3 className="text-xl font-semibold mb-2">Why Choose Us?</h3>
+      <p className="max-w-2xl mx-auto">With years of experience and a dedicated team, we ensure shipments are handled with care and delivered on schedule.</p>
+    </section>
     <StatsCounter />
     <ContactForm />
   </div>
@@ -193,9 +197,10 @@ const Home = () => (
 
 const About = () => (
   <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 p-8 space-y-6">
-    <h2 className="text-2xl font-semibold mb-4">About Us</h2>
-    <p className="max-w-3xl">Founded in 2010, SPN Logistics began with a single truck and a big dream. Today we operate a modern fleet serving customers across Quebec and Ontario.</p>
-    <div className="grid md:grid-cols-3 gap-4">
+  <h2 className="text-2xl font-semibold mb-4">About Us</h2>
+  <p className="max-w-3xl">Founded in 2010, SPN Logistics began with a single truck and a big dream. Today we operate a modern fleet serving customers across Quebec and Ontario.</p>
+  <p className="max-w-3xl">We continue to invest in clean technologies and support local charities to give back to our community.</p>
+  <div className="grid md:grid-cols-3 gap-4">
       <div className="bg-white p-4 rounded shadow">
         <h3 className="font-semibold mb-2">Our Mission</h3>
         <p>To transport freight safely and efficiently while providing outstanding customer service.</p>
@@ -217,7 +222,9 @@ const services = [
   { title: 'Express Delivery', icon: '⚡', desc: 'Time-critical shipments across Canada.' },
   { title: 'Specialized Transport', icon: '🛣️', desc: 'Oversized and temperature controlled loads.' },
   { title: 'Warehousing', icon: '🏢', desc: 'Secure storage facilities.' },
-  { title: 'Logistics Solutions', icon: '📦', desc: 'End-to-end supply chain management.' }
+  { title: 'Logistics Solutions', icon: '📦', desc: 'End-to-end supply chain management.' },
+  { title: 'Cross-Border Shipping', icon: '🇺🇸', desc: 'Seamless moves between Canada and the USA.' },
+  { title: 'Consulting', icon: '💡', desc: 'Expert advice to optimize your supply chain.' }
 ];
 
 const ServiceAccordion = ({ service }) => {
@@ -263,6 +270,14 @@ const Fleet = () => (
         <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80" alt="Trailer" className="rounded-t" />
         <p className="p-4">Variety of trailers for different loads.</p>
       </div>
+      <div className="bg-white rounded shadow">
+        <img src="https://images.unsplash.com/photo-1529778162587-656c3b9b4d81?auto=format&fit=crop&w=800&q=80" alt="Flatbed" className="rounded-t" />
+        <p className="p-4">Flatbeds available for oversized freight.</p>
+      </div>
+      <div className="bg-white rounded shadow">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Warehouse" className="rounded-t" />
+        <p className="p-4">Secure yards and warehouse facilities.</p>
+      </div>
     </div>
   </div>
 );
@@ -270,7 +285,8 @@ const Fleet = () => (
 const jobs = [
   { id: 'driver', title: 'Truck Driver', desc: 'Operate late-model tractors on regional routes.' },
   { id: 'dispatcher', title: 'Dispatcher', desc: 'Coordinate shipments and support our drivers.' },
-  { id: 'mechanic', title: 'Mechanic', desc: 'Maintain our fleet of trucks and trailers.' }
+  { id: 'mechanic', title: 'Mechanic', desc: 'Maintain our fleet of trucks and trailers.' },
+  { id: 'ops', title: 'Operations Manager', desc: 'Lead daily operations and manage our team.' }
 ];
 
 const Careers = () => (
@@ -294,14 +310,19 @@ const Careers = () => (
 const Solutions = () => (
   <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-indigo-50 p-8">
     <h2 className="text-2xl font-semibold mb-4">Technology-Driven Solutions</h2>
-    <p className="mb-2 max-w-xl">Our digital freight network connects shippers with carriers for efficient hauling.</p>
-    <p className="max-w-xl">Real-time tracking and optimized routes ensure your shipments arrive on time.</p>
-  </div>
+  <p className="mb-2 max-w-xl">Our digital freight network connects shippers with carriers for efficient hauling.</p>
+  <p className="max-w-xl">Real-time tracking and optimized routes ensure your shipments arrive on time.</p>
+  <ul className="list-disc pl-5 max-w-xl space-y-1 mt-2">
+    <li>API integrations for real-time data</li>
+    <li>Automated alerts for any delays</li>
+  </ul>
+</div>
 );
 
 const Contact = () => (
   <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 p-8">
     <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+    <p className="mb-4 max-w-xl">Our team is available 24/7 to answer your questions and provide shipping quotes.</p>
     <p className="mb-2">
       <a href="https://maps.google.com/?q=1059%20Chem.%20Legault%2C%20Les%20C%C3%A8dres%2C%20QC" className="text-blue-600 underline">
         1059 Chem. Legault, Les Cèdres, QC J7T 1N8
@@ -421,29 +442,21 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur shadow-md">
+      <nav className="sticky top-0 z-50 text-white bg-gradient-to-r from-gray-900 to-gray-700 shadow-md">
         <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
           <h1 className="text-xl font-bold">SPN Logistics</h1>
-          <button className="md:hidden" onClick={toggle} aria-label="Menu">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+          <button className="md:hidden focus:outline-none" onClick={toggle} aria-label="Menu">
+            {open ? <i className="fas fa-times text-2xl"></i> : <i className="fas fa-bars text-2xl"></i>}
           </button>
           <div className="hidden md:flex space-x-4">
             <Links />
           </div>
         </div>
-        {open && (
-          <div className="md:hidden px-4 pb-4 space-y-1">
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}> 
+          <div className="px-4 pb-4 space-y-1">
             <Links />
           </div>
-        )}
+        </div>
       </nav>
       {children}
       <Footer />
