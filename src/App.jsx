@@ -1,3 +1,4 @@
+import React from "react";
 // Minimal router implementation to avoid external React Router dependency
 const RouterContext = React.createContext();
 
