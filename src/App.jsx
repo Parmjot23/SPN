@@ -423,7 +423,7 @@ function ContactForm({ formId = 'contact' }) {
 
 const NavLink = ({ to, children, className = "" }) => (
   <Link
-    className={`block md:inline-block px-3 py-2 rounded text-gray-200 transition-colors duration-200 hover:bg-blue-600 hover:text-white ${className}`}
+    className={`relative block md:inline-block px-3 py-2 text-gray-200 transition-colors duration-200 hover:text-white after:absolute after:left-1/2 after:-bottom-1 after:-translate-x-1/2 after:content-['\u2713'] after:text-xs after:opacity-0 hover:after:opacity-100 ${className}`}
     to={to}
   >
     {children}
@@ -490,17 +490,13 @@ const Layout = ({ children }) => {
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/about">About</NavLink>
-      <NavLink to="/services">Services</NavLink>
-      <NavLink to="/fleet">Fleet</NavLink>
-      <NavLink to="/careers">Careers</NavLink>
-      <NavLink to="/solutions">Solutions</NavLink>
       <NavLink to="/contact">Contact</NavLink>
     </>
   );
 
   return (
     <div>
-      <nav className="sticky top-0 z-50 text-white bg-gradient-to-r from-gray-900 to-gray-700 shadow-md">
+      <nav className="fixed top-0 left-0 w-full z-50 text-white bg-black/50 backdrop-blur shadow-md">
         <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
           <h1 className="text-xl font-bold">SPN Logistics</h1>
           <button className="md:hidden focus:outline-none" onClick={toggle} aria-label="Menu">
