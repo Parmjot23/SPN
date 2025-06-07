@@ -9,7 +9,7 @@ import Section from '../ui/Section';
 import Button from '../ui/Button';
 
 const mapURL =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.838986407324!2d144.95373631556526!3d-37.81627937975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f9744ef1%3A0xf9b1cae4f743fecd!2sMelbourne%20CBD!5e0!3m2!1sen!2sau!4v1614635252261!5m2!1sen!2sau';
+  'https://maps.google.com/maps?q=1059%20Chem.%20Legault,%20Les%20C%C3%A8dres,%20QC%20J7T%201N8&z=14&output=embed';
 
 const contactSchema = z.object({
   name: z.string().min(1, 'Name is required'),
