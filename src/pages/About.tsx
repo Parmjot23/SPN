@@ -2,6 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Section from '../ui/Section';
 import { motion } from 'framer-motion';
+import RefrigeratedImg from '../assets/Refrigerated.png';
+import DryVanImg from '../assets/dryvan.png';
+import SemiTruckImg from '../assets/semitruck.png';
 
 const About: React.FC = () => {
   return (
@@ -28,17 +31,16 @@ const About: React.FC = () => {
 
       <Section title="Our Fleet">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Example fleet images with lazy loading or React-LazyLoad */}
-          {Array.from({ length: 3 }).map((_, idx) => (
+          {/* Fleet images */}
+          {[RefrigeratedImg, DryVanImg, SemiTruckImg].map((imgSrc, idx) => (
             <motion.div
               key={idx}
               whileHover={{ scale: 1.02 }}
               className="rounded overflow-hidden shadow"
             >
               <React.Suspense fallback={<div className="h-60 bg-gray-200" />}>
-                {/* Example of a lazy-loaded image. Real usage might wrap a <LazyLoadImage> */}
                 <img
-                  src={`https://source.unsplash.com/random/800x600?truck&sig=${idx}`}
+                  src={imgSrc}
                   alt="Fleet truck"
                   className="w-full h-60 object-cover"
                 />
