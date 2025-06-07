@@ -1,22 +1,10 @@
-module.exports = {
-  darkMode: 'class',
+export default {
   content: [
-    './index.html',
-    './src/**/*.{js,jsx,ts,tsx}'
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {
-      colors: {
-        primary: '#1F56FF',
-        secondary: '#FFB703',
-        dark: '#0f172a',
-        light: '#f8fafc'
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Merriweather', 'serif']
-      }
-    }
+    extend: {},
   },
-  plugins: []
+  plugins: [],
 };

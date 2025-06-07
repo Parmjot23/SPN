@@ -1,35 +1,12 @@
-# SPN Logistics Website
+# React + Vite
 
-This repository contains a modern single page application for **SPN Logistics**. The app now uses **Vite**, **React 18** and **Tailwind CSS 3** with GSAP animations and EmailJS forms.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features and Pages
+Currently, two official plugins are available:
 
-- **Home** – full screen video hero with Ken Burns effect, service previews and stats counters.
-- **About** – company history, mission and values.
-- **Services** – interactive accordion of offered services.
-- **Fleet** – photo gallery with lightbox.
-- **Careers** – searchable job listings with application forms.
-- **Contact** – contact form and embedded map.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-A dark mode is available with a toggle in the navigation bar. Scroll triggered animations enhance each section.
+## Expanding the ESLint configuration
 
-### Setup
-
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Run the development server with hot module reloading:
-   ```bash
-   npm run dev
-   ```
-3. Build for production:
-   ```bash
-   npm run build
-   ```
-
-EmailJS credentials are provided via `VITE_EMAILJS_KEY`, `VITE_EMAILJS_SERVICE` and `VITE_EMAILJS_TEMPLATE` environment variables during build or development.
-
-## Deployment
-
-The site can be deployed on any static host. The included `build.sh` script is used by Netlify to generate the optimized `dist` folder.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
