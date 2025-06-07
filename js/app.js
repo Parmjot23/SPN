@@ -431,10 +431,10 @@ const NavLink = ({ to, children, className = "" }) => (
 
 const Footer = () => (
   <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-8">
-    <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-6">
+    <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-6">
       <div>
         <h3 className="font-semibold mb-2">Navigation</h3>
-        <ul className="space-y-1">
+        <ul className="grid grid-cols-2 gap-1">
           <li><NavLink to="/" className="text-gray-300">Home</NavLink></li>
           <li><NavLink to="/about" className="text-gray-300">About</NavLink></li>
           <li><NavLink to="/services" className="text-gray-300">Services</NavLink></li>
@@ -446,39 +446,35 @@ const Footer = () => (
       </div>
       <div>
         <h3 className="font-semibold mb-2">Follow Us</h3>
-        <div className="flex space-x-4 text-xl">
+        <div className="flex space-x-4 text-xl mb-4">
+          <a href="#" aria-label="Instagram" className="hover:text-blue-400">
+            <i className="fab fa-instagram"></i>
+          </a>
           <a href="#" aria-label="Facebook" className="hover:text-blue-400">
             <i className="fab fa-facebook-f"></i>
           </a>
           <a href="#" aria-label="Twitter" className="hover:text-blue-400">
             <i className="fab fa-twitter"></i>
           </a>
-          <a href="#" aria-label="Instagram" className="hover:text-blue-400">
-            <i className="fab fa-instagram"></i>
-          </a>
+        </div>
+        <div>
+          <p>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
+          <p><a href="tel:+14506313677" className="hover:text-blue-400">(450) 631-3677</a></p>
+          <p><a href="mailto:info@spnlogistics.com" className="hover:text-blue-400">info@spnlogistics.com</a></p>
         </div>
       </div>
-      <div>
-        <h3 className="font-semibold mb-2">Contact</h3>
-        <p>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
-        <p><a href="tel:+14506313677" className="hover:text-blue-400">(450) 631-3677</a></p>
-        <p><a href="mailto:info@spnlogistics.com" className="hover:text-blue-400">info@spnlogistics.com</a></p>
       </div>
-      <div className="md:col-span-1 col-span-2">
-        <h3 className="font-semibold mb-2">Sponsors</h3>
-        <div className="overflow-hidden">
-          <div className="flex space-x-8 text-2xl animate-scroll">
-            <i className="fas fa-truck hover:text-yellow-300"></i>
-            <i className="fas fa-warehouse hover:text-yellow-300"></i>
-            <i className="fas fa-road hover:text-yellow-300"></i>
-            <i className="fas fa-traffic-light hover:text-yellow-300"></i>
-            <i className="fas fa-tools hover:text-yellow-300"></i>
-            <i className="fas fa-gas-pump hover:text-yellow-300"></i>
-          </div>
+      <div className="overflow-hidden py-6">
+        <div className="flex space-x-8 text-2xl animate-scroll">
+          <i className="fas fa-truck hover:text-yellow-300"></i>
+          <i className="fas fa-warehouse hover:text-yellow-300"></i>
+          <i className="fas fa-road hover:text-yellow-300"></i>
+          <i className="fas fa-traffic-light hover:text-yellow-300"></i>
+          <i className="fas fa-tools hover:text-yellow-300"></i>
+          <i className="fas fa-gas-pump hover:text-yellow-300"></i>
         </div>
       </div>
-    </div>
-    <div className="text-center py-4 border-t border-gray-700">
+      <div className="text-center py-4 border-t border-gray-700">
       <p>© {new Date().getFullYear()} SPN Logistics. Site by <a href="https://www.madebyparm.com" className="text-blue-400">madebyparm</a>.</p>
     </div>
   </footer>
