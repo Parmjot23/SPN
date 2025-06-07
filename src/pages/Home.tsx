@@ -5,7 +5,14 @@ import CountUp from 'react-countup';
 import Section from '../ui/Section';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
-import slickTruck from '../assets/image_processing20210620-27954-1edhf73.png'; // example placeholder
+import partnerImg1 from '../assets/ChatGPT Image Jun 7, 2025, 02_58_55 PM.png';
+import partnerImg2 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_03 PM.png';
+import partnerImg3 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_52 PM.png';
+import partnerImg4 from '../assets/ChatGPT Image Jun 7, 2025, 03_02_08 PM.png';
+import reviewMen from '../assets/review_men.png';
+import reviewMen2 from '../assets/review_men2.png';
+import reviewMenSukhpreet from '../assets/review_men_sukhpreet.png';
+import reviewWomen from '../assets/review_women.png';
 import heroVideo from '../assets/mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4';
 import Slider from 'react-slick';
 
@@ -22,6 +29,37 @@ const Home: React.FC = () => {
     slidesToScroll: 1,
     autoplay: true,
   };
+
+  const testimonials = [
+    {
+      quote:
+        'SPN Logistics has been a reliable partner. Our loads always arrive on schedule.',
+      name: 'John Doe',
+      role: 'Logistics Manager, ACME Corp',
+      avatar: reviewMen,
+    },
+    {
+      quote:
+        'Their cross-border expertise has been game-changing for our supply chain.',
+      name: 'Jane Smith',
+      role: 'Operations Director, Global X',
+      avatar: reviewWomen,
+    },
+    {
+      quote: 'Great communication and on-time deliveries every time.',
+      name: 'Mike Johnson',
+      role: 'Supply Chain Lead, Widgets Inc',
+      avatar: reviewMen2,
+    },
+    {
+      quote: 'A dependable carrier that we trust with our freight.',
+      name: 'Sukhpreet Singh',
+      role: 'Dispatch Manager, FastLane LLC',
+      avatar: reviewMenSukhpreet,
+    },
+  ];
+
+  const partnerImages = [partnerImg1, partnerImg2, partnerImg3, partnerImg4];
 
   return (
     <>
@@ -139,26 +177,13 @@ const Home: React.FC = () => {
       {/* Testimonials */}
       <Section title="What Our Clients Say">
         <Slider {...testimonialSettings}>
-          {[
-            {
-              quote:
-                'SPN Logistics has been a reliable partner. Our loads always arrive on schedule.',
-              name: 'John Doe',
-              role: 'Logistics Manager, ACME Corp',
-            },
-            {
-              quote:
-                'Their cross-border expertise has been game-changing for our supply chain.',
-              name: 'Jane Smith',
-              role: 'Operations Director, Global X',
-            },
-          ].map(({ quote, name, role }) => (
+          {testimonials.map(({ quote, name, role, avatar }) => (
             <div key={name} className="p-4">
               <blockquote className="bg-white dark:bg-darkBg2 p-6 rounded shadow">
                 <p className="mb-4 italic">&ldquo;{quote}&rdquo;</p>
                 <div className="flex items-center gap-2">
                   <img
-                    src={slickTruck}
+                    src={avatar}
                     alt={`${name} avatar`}
                     className="w-10 h-10 rounded-full object-cover"
                   />
@@ -176,10 +201,10 @@ const Home: React.FC = () => {
       {/* Partners */}
       <Section title="Our Partners">
         <div className="flex flex-wrap gap-4 justify-center items-center">
-          {Array.from({ length: 5 }).map((_, idx) => (
+          {partnerImages.map((img, idx) => (
             <img
               key={idx}
-              src={slickTruck}
+              src={img}
               alt="partner logo"
               className="w-24 grayscale hover:grayscale-0 transition-all"
             />
