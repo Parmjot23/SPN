@@ -32,7 +32,7 @@ const Home: React.FC = () => {
       <section className="relative h-screen flex items-center justify-center">
         <video
           className="absolute w-full h-full object-cover"
-          src="/assets/hero.mp4"
+          src="/assets/mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4"
           autoPlay
           loop
           muted
