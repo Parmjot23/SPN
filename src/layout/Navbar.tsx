@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
     <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-sm text-white">
       <nav className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="font-bold text-xl tracking-wide">
-          ExpressLoop
+          SPN Logistics
         </Link>
         <button
           onClick={() => setIsOpen(!isOpen)}

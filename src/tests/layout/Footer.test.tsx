@@ -5,6 +5,6 @@ import Footer from '../../layout/Footer';
 describe('Footer component', () => {
   it('renders the Footer text', () => {
     const { getByText } = render(<Footer />);
-    expect(getByText(/ExpressLoop Logistics/i)).toBeInTheDocument();
+    expect(getByText(/SPN Logistics/i)).toBeInTheDocument();
   });
 });

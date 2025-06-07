@@ -31,7 +31,7 @@ const ServiceDetails: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>ExpressLoop Logistics | {service.title}</title>
+        <title>SPN Logistics | {service.title}</title>
         <meta name="description" content={`Details about ${service.title}.`} />
       </Helmet>
       <div className="max-w-5xl mx-auto p-4 mt-20">

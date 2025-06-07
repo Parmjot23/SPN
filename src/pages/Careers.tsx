@@ -49,11 +49,11 @@ const Careers: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>ExpressLoop Logistics | Careers</title>
+        <title>SPN Logistics | Careers</title>
       </Helmet>
       <Section>
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-primary mb-6">Careers at ExpressLoop</h1>
+          <h1 className="text-3xl font-bold text-primary mb-6">Careers at SPN Logistics</h1>
           <p className="max-w-xl mx-auto mb-8">
             Join our fleet and be part of a growing, dedicated team that values safety and on-time
             performance.
