@@ -496,7 +496,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-
+      <nav className="fixed top-0 left-0 w-full z-50 text-white bg-black/50 backdrop-blur shadow-md relative">
         <div className="max-w-6xl mx-auto flex items-center justify-end p-4">
           <button className="md:hidden focus:outline-none" onClick={toggle} aria-label="Menu">
             {open ? <i className="fas fa-times text-2xl"></i> : <i className="fas fa-bars text-2xl"></i>}
@@ -508,7 +508,7 @@ const Layout = ({ children }) => {
             </button>
           </div>
         </div>
-
+        <div className={`md:hidden absolute top-full left-0 w-full ${open ? 'block' : 'hidden'} bg-black/70`}>
           <div className="px-4 pb-4 space-y-1">
             <Links />
             <button onClick={toggleDark} aria-label="Toggle dark mode" className="block mt-2">
