@@ -7,17 +7,17 @@ const About: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>ExpressLoop Logistics | About</title>
+        <title>SPN Logistics | About</title>
         <meta
           name="description"
-          content="Learn about ExpressLoop Logistics - our story, fleet, and executive team."
+          content="Learn about SPN Logistics - our story, fleet, and executive team."
         />
       </Helmet>
       <Section>
         <div className="text-center max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold text-primary mb-6">Our Story</h1>
           <p className="mb-4">
-            Founded over two decades ago, ExpressLoop started with a single truck and a big dream...
+            Founded over two decades ago, SPN Logistics started with a single truck and a big dream...
           </p>
           <p>
             Today, we operate across North America with a focus on safety, reliability, and on-time

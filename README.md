@@ -1,4 +1,4 @@
-# ExpressLoop Logistics
+# SPN Logistics
 
 A modern trucking-and-logistics React SPA built with Vite, TypeScript, Tailwind, and more.
 
@@ -32,6 +32,15 @@ Hero video is from [Pexels / Unsplash] or other royalty-free sources.
 All images in `/src/assets` are placeholders from Unsplash with direct references:
 
 * `hero.mp4` from [Pexels link] or [Coverr link] (royalty-free).
+
+### Required Images
+
+Place the following files in `src/assets`:
+
+1. **hero.mp4** – A short looping video of a semi‑truck on the road. This plays in the home page hero section.
+2. **truck-partner.png** – A small logo used for testimonial avatars and partner logos. A 200×200 PNG with a transparent background works well.
+
+You can replace these placeholders with your own media files, keeping the same file names so the components load them automatically.
 
 ### Contributing
 

@@ -6,7 +6,7 @@ const NotFound: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>ExpressLoop Logistics | 404</title>
+        <title>SPN Logistics | 404</title>
       </Helmet>
       <div className="min-h-screen flex flex-col items-center justify-center text-center">
         <h1 className="text-6xl font-bold text-primary mb-4">404</h1>

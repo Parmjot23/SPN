@@ -26,7 +26,7 @@ const MapEmbed = React.lazy(() => {
       resolve({
         default: () => (
           <iframe
-            title="ExpressLoop HQ"
+            title="SPN Logistics HQ"
             src={mapURL}
             width="100%"
             height="450"
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>ExpressLoop Logistics | Contact</title>
+        <title>SPN Logistics | Contact</title>
       </Helmet>
       <Section>
         <h1 className="text-3xl font-bold text-primary text-center mb-6">Contact Us</h1>
@@ -72,11 +72,11 @@ const Contact: React.FC = () => {
           <div>
             <div className="mb-4">
               <h3 className="font-semibold">Headquarters</h3>
-              <p>1234 Trucking Lane, Logistics City, USA</p>
+              <p>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
             </div>
             <div className="mb-4">
               <h3 className="font-semibold">Yard</h3>
-              <p>5678 Haul Road, Cargo Town, USA</p>
+              <p>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
             </div>
             <div>
               <h3 className="font-semibold">24/7 Dispatch</h3>

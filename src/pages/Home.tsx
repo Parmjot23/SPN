@@ -25,8 +25,8 @@ const Home: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>ExpressLoop Logistics | Home</title>
-        <meta name="description" content="ExpressLoop Logistics - Professional trucking and logistics services." />
+        <title>SPN Logistics | Home</title>
+        <meta name="description" content="SPN Logistics - Professional trucking and logistics services." />
       </Helmet>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
@@ -46,7 +46,7 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl font-bold mb-4"
           >
-            Drive Forward with ExpressLoop
+            Drive Forward with SPN Logistics
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ const Home: React.FC = () => {
         </div>
       </Section>
       {/* Why Choose Us (timeline / vertical steps) */}
-      <Section title="Why Choose ExpressLoop">
+      <Section title="Why Choose SPN Logistics">
         <ul className="space-y-8">
           <li className="flex flex-col md:flex-row items-start md:items-center gap-4">
             <div className="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full">
@@ -142,7 +142,7 @@ const Home: React.FC = () => {
           <div className="p-4">
             <blockquote className="bg-white dark:bg-darkBg2 p-6 rounded shadow">
               <p className="mb-4 italic">
-                "ExpressLoop has been a reliable partner. Our loads always arrive on schedule."
+                "SPN Logistics has been a reliable partner. Our loads always arrive on schedule."
               </p>
               <div className="flex items-center gap-2">
                 <img

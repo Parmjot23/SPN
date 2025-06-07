@@ -10,6 +10,6 @@ describe('Home page', () => {
         <Home />
       </BrowserRouter>
     );
-    expect(getByText(/Drive Forward with ExpressLoop/i)).toBeInTheDocument();
+    expect(getByText(/Drive Forward with SPN Logistics/i)).toBeInTheDocument();
   });
 });
