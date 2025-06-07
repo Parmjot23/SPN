@@ -6,6 +6,7 @@ import Section from '../ui/Section';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import slickTruck from '../assets/image_processing20210620-27954-1edhf73.png'; // example placeholder
+import heroVideo from '../assets/hero.mp4'; // ⬅️  NEW: import the video
 import Slider from 'react-slick';
 
 // For react-slick slider
@@ -19,20 +20,24 @@ const Home: React.FC = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true
+    autoplay: true,
   };
 
   return (
     <>
       <Helmet>
         <title>SPN Logistics | Home</title>
-        <meta name="description" content="SPN Logistics - Professional trucking and logistics services." />
+        <meta
+          name="description"
+          content="SPN Logistics - Professional trucking and logistics services."
+        />
       </Helmet>
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <video
           className="absolute w-full h-full object-cover"
-          src="/assets/mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4"
+          src={heroVideo}        // ⬅️  UPDATED: uses the imported path
           autoPlay
           loop
           muted
@@ -62,6 +67,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
       {/* Stats Section */}
       <Section>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -91,6 +97,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </Section>
+
       {/* Services Grid */}
       <Section title="Our Services">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -98,86 +105,75 @@ const Home: React.FC = () => {
             { title: 'LTL Shipping', slug: 'ltl' },
             { title: 'FTL Shipping', slug: 'ftl' },
             { title: 'Refrigerated Transport', slug: 'refrigerated' },
-            { title: 'Cross-Border', slug: 'cross-border' }
-          ].map(service => (
+            { title: 'Cross-Border', slug: 'cross-border' },
+          ].map((service) => (
             <Card key={service.slug} title={service.title} subtitle="Learn More" />
           ))}
         </div>
       </Section>
-      {/* Why Choose Us (timeline / vertical steps) */}
+
+      {/* Why Choose Us */}
       <Section title="Why Choose SPN Logistics">
         <ul className="space-y-8">
-          <li className="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div className="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full">
-              1
-            </div>
-            <div>
-              <h3 className="font-semibold">Safety First</h3>
-              <p>We prioritize safety and compliance at every mile.</p>
-            </div>
-          </li>
-          <li className="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div className="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full">
-              2
-            </div>
-            <div>
-              <h3 className="font-semibold">Modern Fleet</h3>
-              <p>Our trucks are up-to-date and well-maintained for any haul.</p>
-            </div>
-          </li>
-          <li className="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div className="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full">
-              3
-            </div>
-            <div>
-              <h3 className="font-semibold">Expert Drivers</h3>
-              <p>Our dedicated team ensures on-time deliveries every time.</p>
-            </div>
-          </li>
+          {[
+            ['Safety First', 'We prioritize safety and compliance at every mile.'],
+            ['Modern Fleet', 'Our trucks are up-to-date and well-maintained for any haul.'],
+            ['Expert Drivers', 'Our dedicated team ensures on-time deliveries every time.'],
+          ].map(([heading, copy], i) => (
+            <li
+              key={heading}
+              className="flex flex-col md:flex-row items-start md:items-center gap-4"
+            >
+              <div className="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full">
+                {i + 1}
+              </div>
+              <div>
+                <h3 className="font-semibold">{heading}</h3>
+                <p>{copy}</p>
+              </div>
+            </li>
+          ))}
         </ul>
       </Section>
-      {/* Testimonial slider */}
+
+      {/* Testimonials */}
       <Section title="What Our Clients Say">
         <Slider {...testimonialSettings}>
-          <div className="p-4">
-            <blockquote className="bg-white dark:bg-darkBg2 p-6 rounded shadow">
-              <p className="mb-4 italic">
-                "SPN Logistics has been a reliable partner. Our loads always arrive on schedule."
-              </p>
-              <div className="flex items-center gap-2">
-                <img
-                  src={slickTruck}
-                  alt="client avatar"
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-semibold">John Doe</p>
-                  <p className="text-xs">Logistics Manager, ACME Corp</p>
+          {[
+            {
+              quote:
+                'SPN Logistics has been a reliable partner. Our loads always arrive on schedule.',
+              name: 'John Doe',
+              role: 'Logistics Manager, ACME Corp',
+            },
+            {
+              quote:
+                'Their cross-border expertise has been game-changing for our supply chain.',
+              name: 'Jane Smith',
+              role: 'Operations Director, Global X',
+            },
+          ].map(({ quote, name, role }) => (
+            <div key={name} className="p-4">
+              <blockquote className="bg-white dark:bg-darkBg2 p-6 rounded shadow">
+                <p className="mb-4 italic">&ldquo;{quote}&rdquo;</p>
+                <div className="flex items-center gap-2">
+                  <img
+                    src={slickTruck}
+                    alt={`${name} avatar`}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-semibold">{name}</p>
+                    <p className="text-xs">{role}</p>
+                  </div>
                 </div>
-              </div>
-            </blockquote>
-          </div>
-          <div className="p-4">
-            <blockquote className="bg-white dark:bg-darkBg2 p-6 rounded shadow">
-              <p className="mb-4 italic">
-                "Their cross-border expertise has been game-changing for our supply chain."
-              </p>
-              <div className="flex items-center gap-2">
-                <img
-                  src={slickTruck}
-                  alt="client avatar"
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-semibold">Jane Smith</p>
-                  <p className="text-xs">Operations Director, Global X</p>
-                </div>
-              </div>
-            </blockquote>
-          </div>
+              </blockquote>
+            </div>
+          ))}
         </Slider>
       </Section>
-      {/* Partners Bar */}
+
+      {/* Partners */}
       <Section title="Our Partners">
         <div className="flex flex-wrap gap-4 justify-center items-center">
           {Array.from({ length: 5 }).map((_, idx) => (
