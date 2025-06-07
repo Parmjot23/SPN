@@ -65,7 +65,7 @@ const Hero = () => {
     <section className="relative h-screen overflow-hidden">
       <video
         className="absolute inset-0 w-full h-full object-cover kenburns"
-        src="https://assets.mixkit.co/videos/preview/mixkit-large-truck-riding-down-a-highway-10020-large.mp4"
+        src="/trucking.mp4"
         autoPlay
         loop
         muted
@@ -434,16 +434,16 @@ const Footer = () => (
   <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white mt-8">
     <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-6">
       <div>
-        <h3 className="font-semibold mb-2">Navigation</h3>
-        <ul className="grid grid-cols-2 gap-1">
-          <li><NavLink to="/" className="text-gray-300">Home</NavLink></li>
-          <li><NavLink to="/about" className="text-gray-300">About</NavLink></li>
-          <li><NavLink to="/services" className="text-gray-300">Services</NavLink></li>
-          <li><NavLink to="/fleet" className="text-gray-300">Fleet</NavLink></li>
-          <li><NavLink to="/careers" className="text-gray-300">Careers</NavLink></li>
-          <li><NavLink to="/solutions" className="text-gray-300">Solutions</NavLink></li>
-          <li><NavLink to="/contact" className="text-gray-300">Contact</NavLink></li>
-        </ul>
+        <h3 className="font-semibold mb-2">Contact Us</h3>
+        <p><i className="fas fa-map-marker-alt mr-2"></i>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
+        <p>
+          <i className="fas fa-phone mr-2"></i>
+          <a href="tel:+14506313677" className="hover:text-blue-400">(450) 631-3677</a>
+        </p>
+        <p>
+          <i className="fas fa-envelope mr-2"></i>
+          <a href="mailto:info@spnlogistics.com" className="hover:text-blue-400">info@spnlogistics.com</a>
+        </p>
       </div>
       <div>
         <h3 className="font-semibold mb-2">Follow Us</h3>
@@ -457,17 +457,6 @@ const Footer = () => (
           <a href="#" aria-label="Twitter" className="hover:text-blue-400">
             <i className="fab fa-twitter"></i>
           </a>
-        </div>
-        <div>
-          <p><i className="fas fa-map-marker-alt mr-2"></i>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
-          <p>
-            <i className="fas fa-phone mr-2"></i>
-            <a href="tel:+14506313677" className="hover:text-blue-400">(450) 631-3677</a>
-          </p>
-          <p>
-            <i className="fas fa-envelope mr-2"></i>
-            <a href="mailto:info@spnlogistics.com" className="hover:text-blue-400">info@spnlogistics.com</a>
-          </p>
         </div>
       </div>
     </div>
@@ -515,7 +504,7 @@ const Layout = ({ children }) => {
         <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
           <h1 className="text-xl font-bold">SPN Logistics</h1>
           <button className="md:hidden focus:outline-none" onClick={toggle} aria-label="Menu">
-            {open ? <i className="fas fa-door-open text-2xl"></i> : <i className="fas fa-door-closed text-2xl"></i>}
+            {open ? <i className="fas fa-times text-2xl"></i> : <i className="fas fa-bars text-2xl"></i>}
           </button>
           <div className="hidden md:flex space-x-4">
             <Links />
