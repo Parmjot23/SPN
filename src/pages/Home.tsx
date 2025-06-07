@@ -5,7 +5,7 @@ import CountUp from 'react-countup';
 import Section from '../ui/Section';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
-import slickTruck from '../assets/truck-partner.png'; // example placeholder
+import slickTruck from '../assets/image_processing20210620-27954-1edhf73.png'; // example placeholder
 import Slider from 'react-slick';
 
 // For react-slick slider
