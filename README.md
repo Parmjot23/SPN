@@ -31,14 +31,14 @@ Uses `netlify.toml` for configuration:
 Hero video is from [Pexels / Unsplash] or other royalty-free sources.
 All images in `/src/assets` are placeholders from Unsplash with direct references:
 
-* `hero.mp4` from [Pexels link] or [Coverr link] (royalty-free).
+* `mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4` from Mixkit (royalty-free) or a similar source.
 
 ### Required Images
 
 Place the following files in `src/assets`:
 
-1. **hero.mp4** – A short looping video of a semi‑truck on the road. This plays in the home page hero section.
-2. **truck-partner.png** – A small logo used for testimonial avatars and partner logos. A 200×200 PNG with a transparent background works well.
+1. **mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4** – A short looping video of a semi‑truck on the road. This plays in the home page hero section.
+2. **image_processing20210620-27954-1edhf73.png** – A small logo used for testimonial avatars and partner logos. A 200×200 PNG with a transparent background works well.
 
 You can replace these placeholders with your own media files, keeping the same file names so the components load them automatically.
 
