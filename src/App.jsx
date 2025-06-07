@@ -461,9 +461,15 @@ const Footer = () => (
       </div>
       <div>
         <h3 className="font-semibold mb-2">Contact</h3>
-        <p>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
-        <p><a href="tel:+14506313677" className="hover:text-blue-400">(450) 631-3677</a></p>
-        <p><a href="mailto:info@spnlogistics.com" className="hover:text-blue-400">info@spnlogistics.com</a></p>
+        <p><i className="fas fa-map-marker-alt mr-2"></i>1059 Chem. Legault, Les Cèdres, QC J7T 1N8</p>
+        <p>
+          <i className="fas fa-phone mr-2"></i>
+          <a href="tel:+14506313677" className="hover:text-blue-400">(450) 631-3677</a>
+        </p>
+        <p>
+          <i className="fas fa-envelope mr-2"></i>
+          <a href="mailto:info@spnlogistics.com" className="hover:text-blue-400">info@spnlogistics.com</a>
+        </p>
       </div>
       <div className="md:col-span-1 col-span-2">
         <h3 className="font-semibold mb-2">Sponsors</h3>
@@ -513,7 +519,7 @@ const Layout = ({ children }) => {
         <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
           <h1 className="text-xl font-bold">SPN Logistics</h1>
           <button className="md:hidden focus:outline-none" onClick={toggle} aria-label="Menu">
-            {open ? <i className="fas fa-times text-2xl"></i> : <i className="fas fa-bars text-2xl"></i>}
+            {open ? <i className="fas fa-door-open text-2xl"></i> : <i className="fas fa-door-closed text-2xl"></i>}
           </button>
           <div className="hidden md:flex space-x-4">
             <Links />
