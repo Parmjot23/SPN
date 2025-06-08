@@ -30,4 +30,5 @@
 }
 .nav-trailer-link.active {
   @apply text-primary;
+  transform: translateX(-4px);
 }
