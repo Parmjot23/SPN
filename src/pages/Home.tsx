@@ -5,6 +5,8 @@ import CountUp from 'react-countup';
 import Section from '../ui/Section';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
+import { Truck, Route, Package, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import partnerImg1 from '../assets/ChatGPT Image Jun 7, 2025, 02_58_55 PM.png';
 import partnerImg2 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_03 PM.png';
 import partnerImg3 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_52 PM.png';
@@ -60,6 +62,7 @@ const Home: React.FC = () => {
   ];
 
   const partnerImages = [partnerImg1, partnerImg2, partnerImg3, partnerImg4];
+  const navigate = useNavigate();
 
   return (
     <>
@@ -109,27 +112,31 @@ const Home: React.FC = () => {
       {/* Stats Section */}
       <Section>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
+          <div className="flex flex-col items-center gap-2">
+            <Truck className="text-primary" />
             <p className="text-3xl font-bold text-primary">
-              <CountUp end={20} />+
+              <CountUp end={20} duration={4} />+
             </p>
             <p>Years in Service</p>
           </div>
-          <div>
+          <div className="flex flex-col items-center gap-2">
+            <Route className="text-primary" />
             <p className="text-3xl font-bold text-primary">
-              <CountUp end={5000000} suffix="+" />
+              <CountUp end={5000000} suffix="+" duration={4} />
             </p>
             <p>Miles Driven</p>
           </div>
-          <div>
+          <div className="flex flex-col items-center gap-2">
+            <Package className="text-primary" />
             <p className="text-3xl font-bold text-primary">
-              <CountUp end={12000} suffix="+" />
+              <CountUp end={12000} suffix="+" duration={4} />
             </p>
             <p>Loads Delivered</p>
           </div>
-          <div>
+          <div className="flex flex-col items-center gap-2">
+            <CheckCircle className="text-primary" />
             <p className="text-3xl font-bold text-primary">
-              <CountUp end={99} suffix="%" />
+              <CountUp end={99} suffix="%" duration={4} />
             </p>
             <p>On-Time Rate</p>
           </div>
@@ -145,7 +152,12 @@ const Home: React.FC = () => {
             { title: 'Refrigerated Transport', slug: 'refrigerated' },
             { title: 'Cross-Border', slug: 'cross-border' },
           ].map((service) => (
-            <Card key={service.slug} title={service.title} subtitle="Learn More" />
+            <Card
+              key={service.slug}
+              title={service.title}
+              subtitle="Learn More"
+              onClick={() => navigate(`/services/${service.slug}`)}
+            />
           ))}
         </div>
       </Section>
