@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import ScrollTop from '../layout/ScrollTop';
+import ScrollToTopOnRouteChange from '../layout/ScrollToTopOnRouteChange';
 
 // Lazy-loaded pages
 const Home = lazy(() => import('../pages/Home'));
@@ -16,17 +17,26 @@ const AppRoutes: React.FC = () => {
   return (
     <>
       <Navbar />
+      <ScrollToTopOnRouteChange />
       <ScrollTop />
-      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+      <main className="pt-20">
+        <Suspense
+          fallback={
+            <div className="min-h-screen flex items-center justify-center">
+              Loading...
+            </div>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </main>
       <Footer />
     </>
   );
