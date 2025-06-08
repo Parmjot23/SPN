@@ -9,15 +9,12 @@
   @apply relative inline-block pr-8 transition-transform duration-300;
 }
 .nav-trailer-link::after {
-  content: '';
+  content: '🚚';
   position: absolute;
   top: 50%;
   right: 0;
-  width: 1.5rem;
-  height: 1rem;
-  background: url('/src/assets/truck-partner.png') no-repeat center/contain;
-  opacity: 0;
   transform: translateX(50%) translateY(-50%);
+  opacity: 0;
   transition: opacity 0.3s, transform 0.3s;
 }
 .nav-trailer-link:hover {
@@ -26,9 +23,18 @@
 .nav-trailer-link:hover::after,
 .nav-trailer-link.active::after {
   opacity: 1;
-  transform: translateX(0) translateY(-50%);
+  animation: drive 0.4s forwards;
 }
 .nav-trailer-link.active {
   @apply text-primary;
   transform: translateX(-4px);
+}
+
+@keyframes drive {
+  from {
+    transform: translateX(50%) translateY(-50%);
+  }
+  to {
+    transform: translateX(0) translateY(-50%);
+  }
 }
