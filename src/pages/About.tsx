@@ -69,12 +69,24 @@ const About: React.FC = () => {
         </div>
       </Section>
 
-      <Section title="We Provide All Kinds of Services">
+      <Section title="We Provide All Kinds of Services to Fleet">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { src: DryVanImg, label: "Dry Van" },
-            { src: SemiTruckImg, label: "Flatbed" },
-            { src: RefrigeratedImg, label: "Refrigerated" },
+            {
+              src: DryVanImg,
+              label:
+                "Our dry vans keep freight secure and protected from the elements.",
+            },
+            {
+              src: SemiTruckImg,
+              label:
+                "We operate all kinds of semi trucks to handle diverse hauling needs.",
+            },
+            {
+              src: RefrigeratedImg,
+              label:
+                "Reefer trailers maintain temperature for your perishable goods.",
+            },
           ].map(({ src, label }, idx) => (
             <motion.div
               key={idx}
@@ -97,7 +109,7 @@ const About: React.FC = () => {
       </Section>
 
       <Section title="Executive Team">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center place-items-center">
           {[
             {
               name: "Parminder Singh",

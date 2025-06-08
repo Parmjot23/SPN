@@ -200,7 +200,7 @@ const Home: React.FC = () => {
 
       {/* Testimonials */}
       <Section title="What Our Clients Say">
-        <Slider {...testimonialSettings}>
+        <Slider {...testimonialSettings} className="max-w-xl mx-auto">
           {testimonials.map(({ quote, name, role, avatar }) => (
             <div key={name} className="p-4">
               <blockquote className="bg-white dark:bg-darkBg2 p-6 rounded shadow">
