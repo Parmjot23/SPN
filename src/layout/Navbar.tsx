@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-sm shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/60 text-gray-100 backdrop-blur-sm shadow-md">
       <nav className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="font-bold text-xl tracking-wide font-heading">
           SPN Logistics
