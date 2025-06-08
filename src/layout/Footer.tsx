@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
           <div className="space-y-2">
             <p className="flex items-center gap-2">
               <span className="font-bold text-xl">
-                <CountUp end={500} suffix="+" />
+                <CountUp end={650} suffix="+" />
               </span>
               <span>Fleet Vehicles</span>
             </p>
