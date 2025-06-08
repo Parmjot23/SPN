@@ -74,34 +74,35 @@ const About: React.FC = () => {
           {[
             {
               src: DryVanImg,
-              label:
-                "Our dry vans keep freight secure and protected from the elements.",
+              title: "Dry Van",
+              desc: "Our dry vans keep freight secure and protected from the elements.",
             },
             {
               src: SemiTruckImg,
-              label:
-                "We operate all kinds of semi trucks to handle diverse hauling needs.",
+              title: "Semi Truck",
+              desc: "We operate all kinds of semi trucks to handle diverse hauling needs.",
             },
             {
               src: RefrigeratedImg,
-              label:
-                "Reefer trailers maintain temperature for your perishable goods.",
+              title: "Reefer",
+              desc: "Reefer trailers maintain temperature for your perishable goods.",
             },
-          ].map(({ src, label }, idx) => (
+          ].map(({ src, title, desc }, idx) => (
             <motion.div
               key={idx}
               whileHover={{ scale: 1.02 }}
-              className="relative group rounded overflow-hidden shadow"
+              className="relative rounded overflow-hidden shadow"
             >
               <React.Suspense fallback={<div className="h-60 bg-gray-200" />}>
                 <img
                   src={src}
-                  alt={label}
+                  alt={title}
                   className="w-full h-60 object-cover"
                 />
               </React.Suspense>
-              <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <p className="text-white font-semibold text-lg">{label}</p>
+              <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4">
+                <h3 className="text-white text-xl font-bold mb-2">{title}</h3>
+                <p className="text-white text-sm">{desc}</p>
               </div>
             </motion.div>
           ))}
