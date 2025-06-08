@@ -20,8 +20,11 @@
   @apply fill-current stroke-current;
 }
 .truck-text {
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem; /* ~18px */
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
   text-anchor: middle;
   dominant-baseline: middle;
   font-style: normal;
@@ -29,6 +32,7 @@
 .truck-body,
 .truck-cab {
   stroke-width: 2;
+  stroke: currentColor;
   fill: none;
 }
 .truck-wheel {

@@ -17,16 +17,16 @@ const TruckNavLink: React.FC<TruckNavLinkProps> = ({ to, text, onClick }) => {
       }
     >
       <svg
-        width="80"
+        width="112"
         height="40"
-        viewBox="0 0 80 40"
+        viewBox="0 0 112 40"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect x="5" y="10" width="70" height="20" rx="4" className="truck-body" />
-        <circle cx="25" cy="32" r="4" className="truck-wheel" />
-        <circle cx="55" cy="32" r="4" className="truck-wheel" />
+        <rect x="16" y="8" width="80" height="24" rx="4" className="truck-body" />
+        <circle cx="36" cy="32" r="4" className="truck-wheel" />
+        <circle cx="76" cy="32" r="4" className="truck-wheel" />
         <text
-          x="40"
+          x="56"
           y="20"
           textAnchor="middle"
           alignmentBaseline="middle"
