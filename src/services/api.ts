@@ -1,4 +1,7 @@
 import { QueryClient } from '@tanstack/react-query';
+import DryVanImg from '../assets/dryvan.png';
+import SemiTruckImg from '../assets/semitruck.png';
+import ReeferImg from '../assets/Refrigerated.png';
 
 // This file can be used for real or mock API calls
 // Currently a placeholder for future expansions
@@ -10,28 +13,27 @@ interface ServiceInfo {
   slug: string;
   title: string;
   description: string;
+  image: string;
 }
 
 const servicesData: Record<string, Omit<ServiceInfo, 'slug'>> = {
   ltl: {
     title: 'LTL Shipping',
     description:
-      'Less-than-truckload service ideal for small freight that doesn\'t require a full trailer.'
+      'Our less-than-truckload service consolidates your freight with other shipments for a cost-effective solution that still meets your deadlines.',
+    image: DryVanImg
   },
   ftl: {
     title: 'FTL Shipping',
     description:
-      'Full truckload solutions for high-volume shipments that need dedicated space.'
+      'Full truckload options give your cargo exclusive use of a trailer, ideal for high-volume or time-sensitive freight that requires a direct route.',
+    image: SemiTruckImg
   },
   refrigerated: {
     title: 'Refrigerated Transport',
     description:
-      'Temperature-controlled trailers keeping perishables fresh across long distances.'
-  },
-  'cross-border': {
-    title: 'Cross-Border',
-    description:
-      'Hassle-free shipping across Canada and the United States with our customs expertise.'
+      'Our modern reefer fleet keeps temperature-sensitive goods fresh and compliant from pickup through delivery, no matter the distance.',
+    image: ReeferImg
   }
 };
 
@@ -41,5 +43,12 @@ export function getAllServices(): ServiceInfo[] {
 
 export async function fetchServiceDetails(slug: string): Promise<ServiceInfo> {
   // In real scenario, you'd fetch from an API
-  return { slug, ...(servicesData[slug] ?? { title: 'Service', description: '' }) };
+  return {
+    slug,
+    ...(servicesData[slug] ?? {
+      title: 'Service',
+      description: '',
+      image: ''
+    })
+  };
 }

@@ -9,6 +9,7 @@ interface ServiceInfo {
   slug: string;
   title: string;
   description: string;
+  image: string;
 }
 
 const Services: React.FC = () => {
