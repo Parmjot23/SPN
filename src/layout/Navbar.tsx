@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/services/ltl" className={({ isActive }) => (isActive ? 'text-primary' : '')}>
+            <NavLink to="/services" className={({ isActive }) => (isActive ? 'text-primary' : '')}>
               Services
             </NavLink>
           </li>
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/services/ltl" onClick={() => setIsOpen(false)}>
+              <NavLink to="/services" onClick={() => setIsOpen(false)}>
                 Services
               </NavLink>
             </li>

@@ -34,9 +34,9 @@ const About: React.FC = () => {
       <Section title="We Provide All Kinds of Services">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { src: RefrigeratedImg, label: "Refrigerated" },
             { src: DryVanImg, label: "Dry Van" },
             { src: SemiTruckImg, label: "Flatbed" },
+            { src: RefrigeratedImg, label: "Refrigerated" },
           ].map(({ src, label }, idx) => (
             <motion.div
               key={idx}
@@ -59,7 +59,7 @@ const About: React.FC = () => {
       </Section>
 
       <Section title="Executive Team">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
           {[
             {
               name: "Parminder Singh",
