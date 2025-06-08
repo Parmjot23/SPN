@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import TruckNavLink from './TruckNavLink';
 import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
@@ -21,54 +22,19 @@ const Navbar: React.FC = () => {
 
         <ul className="hidden md:flex gap-6">
           <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `nav-trailer-link ${isActive ? 'active' : ''}`
-              }
-            >
-              Home
-            </NavLink>
+            <TruckNavLink to="/" text="Home" />
           </li>
           <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `nav-trailer-link ${isActive ? 'active' : ''}`
-              }
-            >
-              About
-            </NavLink>
+            <TruckNavLink to="/about" text="About" />
           </li>
           <li>
-            <NavLink
-              to="/careers"
-              className={({ isActive }) =>
-                `nav-trailer-link ${isActive ? 'active' : ''}`
-              }
-            >
-              Careers
-            </NavLink>
+            <TruckNavLink to="/careers" text="Careers" />
           </li>
           <li>
-            <NavLink
-              to="/services"
-              className={({ isActive }) =>
-                `nav-trailer-link ${isActive ? 'active' : ''}`
-              }
-            >
-              Services
-            </NavLink>
+            <TruckNavLink to="/services" text="Services" />
           </li>
           <li>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `nav-trailer-link ${isActive ? 'active' : ''}`
-              }
-            >
-              Contact
-            </NavLink>
+            <TruckNavLink to="/contact" text="Contact" />
           </li>
         </ul>
       </nav>
@@ -77,59 +43,39 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-gradient-hero px-4 pb-4 text-gray-200">
           <ul className="flex flex-col gap-4">
             <li>
-              <NavLink
+              <TruckNavLink
                 to="/"
+                text="Home"
                 onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `nav-trailer-link ${isActive ? 'active' : ''}`
-                }
-              >
-                Home
-              </NavLink>
+              />
             </li>
             <li>
-              <NavLink
+              <TruckNavLink
                 to="/about"
+                text="About"
                 onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `nav-trailer-link ${isActive ? 'active' : ''}`
-                }
-              >
-                About
-              </NavLink>
+              />
             </li>
             <li>
-              <NavLink
+              <TruckNavLink
                 to="/careers"
+                text="Careers"
                 onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `nav-trailer-link ${isActive ? 'active' : ''}`
-                }
-              >
-                Careers
-              </NavLink>
+              />
             </li>
             <li>
-              <NavLink
+              <TruckNavLink
                 to="/services"
+                text="Services"
                 onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `nav-trailer-link ${isActive ? 'active' : ''}`
-                }
-              >
-                Services
-              </NavLink>
+              />
             </li>
             <li>
-              <NavLink
+              <TruckNavLink
                 to="/contact"
+                text="Contact"
                 onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `nav-trailer-link ${isActive ? 'active' : ''}`
-                }
-              >
-                Contact
-              </NavLink>
+              />
             </li>
           </ul>
         </div>
