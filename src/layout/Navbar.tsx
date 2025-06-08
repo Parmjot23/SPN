@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-sm shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50 bg-gradient-hero backdrop-blur-sm shadow-md">
       <nav className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between text-gray-200">
         <Link to="/" className="font-bold text-xl tracking-wide font-heading">
           SPN Logistics
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
       </nav>
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="md:hidden bg-black/70 px-4 pb-4 text-gray-200">
+        <div className="md:hidden bg-gradient-hero px-4 pb-4 text-gray-200">
           <ul className="flex flex-col gap-4">
             <li>
               <NavLink
