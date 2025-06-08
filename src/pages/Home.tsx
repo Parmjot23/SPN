@@ -6,7 +6,7 @@ import Section from '../ui/Section';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import { Truck, Route, Package, CheckCircle, Snowflake } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import partnerImg1 from '../assets/ChatGPT Image Jun 7, 2025, 02_58_55 PM.png';
 import partnerImg2 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_03 PM.png';
 import partnerImg3 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_52 PM.png';
@@ -102,8 +102,12 @@ const Home: React.FC = () => {
             Reliable trucking and logistics solutions across North America
           </motion.p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button variant="primary">Get Quote</Button>
-            <Button variant="secondary">Join Our Fleet</Button>
+            <Link to="/contact" className="inline-block">
+              <Button variant="primary">Get Quote</Button>
+            </Link>
+            <Link to="/careers" className="inline-block">
+              <Button variant="secondary">Join Our Fleet</Button>
+            </Link>
           </div>
         </div>
       </section>

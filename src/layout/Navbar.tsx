@@ -39,9 +39,9 @@ const Navbar: React.FC = () => {
         </ul>
       </nav>
       {/* Mobile Drawer */}
-      {isOpen && (
+        {isOpen && (
         <div className="md:hidden bg-gradient-hero px-4 pb-4 text-gray-200">
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col items-center gap-4 text-center">
             <li>
               <TruckNavLink
                 to="/"
