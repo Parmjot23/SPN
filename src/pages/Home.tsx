@@ -10,7 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import partnerImg1 from '../assets/ChatGPT Image Jun 7, 2025, 02_58_55 PM.png';
 import partnerImg2 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_03 PM.png';
 import partnerImg3 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_52 PM.png';
-import partnerImg4 from '../assets/ChatGPT Image Jun 7, 2025, 03_02_08 PM.png';
 import reviewMen from '../assets/review_men.png';
 import reviewMen2 from '../assets/review_men2.png';
 import reviewMenSukhpreet from '../assets/review_men_sukhpreet.png';
@@ -61,7 +60,7 @@ const Home: React.FC = () => {
     },
   ];
 
-  const partnerImages = [partnerImg1, partnerImg2, partnerImg3, partnerImg4];
+  const partnerImages = [partnerImg1, partnerImg2, partnerImg3];
   const navigate = useNavigate();
 
   return (
@@ -115,9 +114,9 @@ const Home: React.FC = () => {
           <div className="flex flex-col items-center gap-2">
             <Truck className="text-primary" />
             <p className="text-3xl font-bold text-primary">
-              <CountUp end={20} duration={4} />+
+              <CountUp end={new Date().getFullYear() - 2020} duration={4} />+
             </p>
-            <p>Years in Service</p>
+            <p>Experience Since 2020</p>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Route className="text-primary" />
