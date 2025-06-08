@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
               <NavLink to="/careers">Careers</NavLink>
             </li>
             <li>
-              <NavLink to="/services/ltl">Services</NavLink>
+              <NavLink to="/services">Services</NavLink>
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>

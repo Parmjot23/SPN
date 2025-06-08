@@ -167,7 +167,7 @@ const Home: React.FC = () => {
               title={service.title}
               subtitle="Learn More"
               icon={service.icon}
-              onClick={() => navigate(`/services/${service.slug}`)}
+              onClick={() => navigate('/services')}
               className="text-center"
             />
           ))}
