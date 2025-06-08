@@ -4,37 +4,34 @@
 
 /* custom styles, if any */
 
-/* Navigation trailer link styles */
-.nav-trailer-link {
-  @apply relative inline-block pr-8 transition-transform duration-300;
-}
-.nav-trailer-link::after {
-  content: '🚚';
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateX(50%) translateY(-50%);
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
-}
-.nav-trailer-link:hover {
-  transform: translateX(-4px);
-}
-.nav-trailer-link:hover::after,
-.nav-trailer-link.active::after {
-  opacity: 1;
-  animation: drive 0.4s forwards;
-}
-.nav-trailer-link.active {
-  @apply text-primary;
-  transform: translateX(-4px);
-}
+/* Previous navigation trailer styles removed */
 
-@keyframes drive {
-  from {
-    transform: translateX(50%) translateY(-50%);
-  }
-  to {
-    transform: translateX(0) translateY(-50%);
-  }
+/* Truck navigation link styles */
+.truck-nav-link {
+  @apply inline-block transition-colors duration-300 text-gray-200;
+}
+.truck-nav-link.active {
+  @apply text-primary;
+}
+.truck-nav-link svg {
+  @apply fill-current stroke-current;
+}
+.truck-text {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+.truck-body,
+.truck-cab {
+  stroke-width: 2;
+  fill: none;
+}
+.truck-wheel {
+  fill: currentColor;
+  stroke: none;
+}
+.truck-door {
+  stroke-width: 2;
+  fill: none;
 }
