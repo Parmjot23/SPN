@@ -42,7 +42,7 @@ const Home: React.FC = () => {
     },
     {
       quote:
-        'Their cross-border expertise has been game-changing for our supply chain.',
+        'Their long-haul expertise has been game-changing for our supply chain.',
       name: 'Jane Smith',
       role: 'Operations Director, Global X',
       avatar: reviewWomen,
@@ -150,7 +150,6 @@ const Home: React.FC = () => {
             { title: 'LTL Shipping', slug: 'ltl' },
             { title: 'FTL Shipping', slug: 'ftl' },
             { title: 'Refrigerated Transport', slug: 'refrigerated' },
-            { title: 'Cross-Border', slug: 'cross-border' },
           ].map((service) => (
             <Card
               key={service.slug}

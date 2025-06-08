@@ -34,8 +34,15 @@ const ServiceDetails: React.FC = () => {
         <title>SPN Logistics | {service.title}</title>
         <meta name="description" content={`Details about ${service.title}.`} />
       </Helmet>
-      <div className="max-w-5xl mx-auto p-4 mt-20">
-        <h1 className="text-3xl font-bold text-primary mb-4">{service.title}</h1>
+      <div className="max-w-5xl mx-auto p-4 mt-20 space-y-4">
+        {service.image && (
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-64 object-cover rounded"
+          />
+        )}
+        <h1 className="text-3xl font-bold text-primary">{service.title}</h1>
         <p>{service.description}</p>
       </div>
     </>
