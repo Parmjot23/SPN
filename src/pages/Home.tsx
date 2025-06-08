@@ -5,7 +5,7 @@ import CountUp from 'react-countup';
 import Section from '../ui/Section';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
-import { Truck, Route, Package, CheckCircle } from 'lucide-react';
+import { Truck, Route, Package, CheckCircle, Snowflake } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import partnerImg1 from '../assets/ChatGPT Image Jun 7, 2025, 02_58_55 PM.png';
 import partnerImg2 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_03 PM.png';
@@ -145,17 +145,31 @@ const Home: React.FC = () => {
 
       {/* Services Grid */}
       <Section title="Our Services">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto justify-items-center">
           {[
-            { title: 'LTL Shipping', slug: 'ltl' },
-            { title: 'FTL Shipping', slug: 'ftl' },
-            { title: 'Refrigerated Transport', slug: 'refrigerated' },
+            {
+              title: 'LTL Shipping',
+              slug: 'ltl',
+              icon: <Package className="w-10 h-10 text-primary" />,
+            },
+            {
+              title: 'FTL Shipping',
+              slug: 'ftl',
+              icon: <Truck className="w-10 h-10 text-primary" />,
+            },
+            {
+              title: 'Refrigerated Transport',
+              slug: 'refrigerated',
+              icon: <Snowflake className="w-10 h-10 text-primary" />,
+            },
           ].map((service) => (
             <Card
               key={service.slug}
               title={service.title}
               subtitle="Learn More"
+              icon={service.icon}
               onClick={() => navigate(`/services/${service.slug}`)}
+              className="text-center"
             />
           ))}
         </div>
