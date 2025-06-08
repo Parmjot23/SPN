@@ -2,8 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import Section from "../ui/Section";
 import { motion } from "framer-motion";
-import RefrigeratedImg from "../assets/Refrigerated.png";
-import DryVanImg from "../assets/dryvan.png";
+import RefrigeratedImg from "../assets/dryvan.png";
+import DryVanImg from "../assets/Refrigerated.png";
 import SemiTruckImg from "../assets/semitruck.png";
 import PlaceholderAvatar from "../assets/image_processing20210620-27954-1edhf73.png";
 
