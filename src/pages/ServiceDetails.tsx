@@ -17,7 +17,7 @@ const ServiceDetails: React.FC = () => {
   }, [slug]);
 
   if (!slug) {
-    return <Navigate to="/services/ltl" replace />;
+    return <Navigate to="/services" replace />;
   }
 
   if (error) {

@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { getAllServices } from '../services/api';
 import Section from '../ui/Section';
 import Card from '../ui/Card';
-import { Link } from 'react-router-dom';
 import { Package, Truck, Snowflake } from 'lucide-react';
 
 interface ServiceInfo {
@@ -41,7 +40,6 @@ const Services: React.FC = () => {
               className="space-y-2 text-center"
             >
               <p>{service.description}</p>
-              <Link className="text-primary underline" to={`/services/${service.slug}`}>Learn More</Link>
             </Card>
           ))}
         </div>
