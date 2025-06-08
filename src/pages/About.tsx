@@ -19,15 +19,53 @@ const About: React.FC = () => {
       </Helmet>
       <Section>
         <div className="text-center max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold text-primary mb-6">Our Story</h1>
-          <p className="mb-4">
-            Founded over two decades ago, SPN Logistics started with a single
-            truck and a big dream...
+          <h1 className="text-3xl font-bold text-primary mb-6">Our Journey</h1>
+          <p className="mb-8">
+            Founded in 2020 with a single truck and a big dream, SPN Logistics
+            has grown quickly across North America. Here's a look at some of the
+            milestones that shaped us.
           </p>
-          <p>
-            Today, we operate across North America with a focus on safety,
-            reliability, and on-time deliveries.
-          </p>
+        </div>
+        <div className="max-w-xl mx-auto">
+          <div className="relative border-l-2 border-primary/20 ml-4">
+            {[
+              {
+                year: "2020",
+                text: "SPN Logistics is founded in Montreal with one truck.",
+              },
+              {
+                year: "2021",
+                text: "Operations expand across Quebec and Ontario.",
+              },
+              {
+                year: "2022",
+                text: "Introduced refrigerated shipping and dedicated lanes.",
+              },
+              {
+                year: "2023",
+                text: "Implemented advanced fleet tracking technology.",
+              },
+              {
+                year: "2024",
+                text: "Recognized among Canada's top logistics providers.",
+              },
+            ].map((event, index) => (
+              <motion.div
+                key={event.year}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="relative pl-8 pb-8"
+              >
+                <span className="absolute left-0 top-2 w-3 h-3 bg-primary rounded-full" />
+                <h3 className="font-semibold text-primary mb-1">
+                  {event.year}
+                </h3>
+                <p>{event.text}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </Section>
 
