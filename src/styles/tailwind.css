@@ -8,7 +8,10 @@
 
 /* Truck navigation link styles */
 .truck-nav-link {
-  @apply inline-block transition-colors duration-300 text-gray-200;
+  @apply inline-block transform transition-all duration-300 text-gray-100;
+}
+.truck-nav-link:hover {
+  @apply text-primary scale-110;
 }
 .truck-nav-link.active {
   @apply text-primary;
@@ -17,7 +20,7 @@
   @apply fill-current stroke-current;
 }
 .truck-text {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-anchor: middle;
   dominant-baseline: middle;
