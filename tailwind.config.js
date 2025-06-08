@@ -7,6 +7,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        heading: ['"Playfair Display"', 'serif'],
+        body: ['Roboto', 'sans-serif'],
+      },
       colors: {
         primary: '#FF5722',
         darkBg: '#0d1321',

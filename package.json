@@ -30,7 +30,9 @@
     "react-router-dom": "^6.11.1",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "zod": "^3.20.6"
+    "zod": "^3.20.6",
+    "@fontsource/roboto": "^5.2.6",
+    "@fontsource/playfair-display": "^5.2.6"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
