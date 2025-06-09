@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import ScrollTop from '../layout/ScrollTop';
@@ -14,12 +14,15 @@ const Contact = lazy(() => import('../pages/Contact'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 const AppRoutes: React.FC = () => {
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+
   return (
     <>
       <Navbar />
       <ScrollToTopOnRouteChange />
       <ScrollTop />
-      <main>
+      <main className={isHome ? '' : 'pt-20'}>
         <Suspense
           fallback={
             <div className="min-h-screen flex items-center justify-center">
