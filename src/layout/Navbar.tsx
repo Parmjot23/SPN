@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import TruckNavLink from './TruckNavLink';
 import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(!isHome);
 
   useEffect(() => {
+    setScrolled(!isHome);
+  }, [isHome]);
+
+  useEffect(() => {
+    if (!isHome) return;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const heroHeight = window.innerHeight;
+      setScrolled(window.scrollY > heroHeight);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <header
