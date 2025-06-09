@@ -65,7 +65,12 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 mt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-        <p className="mb-4 md:mb-0">&copy; {new Date().getFullYear()} SPN Logistics</p>
+        <p className="mb-4 md:mb-0">
+          &copy; {new Date().getFullYear()} SPN Logistics.{' '}
+          <a href="https://www.madebyparm.com" className="underline">
+            Made by Parm
+          </a>
+        </p>
         <div className="flex gap-4">
           <a href="https://facebook.com">
             <Facebook size={18} />
