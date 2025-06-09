@@ -12,5 +12,6 @@ describe('Footer component', () => {
       </MemoryRouter>
     );
     expect(getByText(/SPN Logistics/i)).toBeInTheDocument();
+    expect(getByText(/Made by Parm/i)).toBeInTheDocument();
   });
 });
