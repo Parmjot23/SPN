@@ -34,7 +34,7 @@ const ServiceDetails: React.FC = () => {
         <title>SPN Logistics | {service.title}</title>
         <meta name="description" content={`Details about ${service.title}.`} />
       </Helmet>
-      <div className="max-w-5xl mx-auto p-4 mt-20 space-y-4">
+      <div className="max-w-5xl mx-auto p-4 space-y-4">
         {service.image && (
           <img
             src={service.image}
