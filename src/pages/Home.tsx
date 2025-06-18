@@ -116,28 +116,28 @@ const Home: React.FC = () => {
       <Section>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="flex flex-col items-center gap-2">
-            <Truck className="text-primary" />
+            <Truck className="text-secondary" />
             <p className="text-3xl font-bold text-primary">
               <CountUp end={new Date().getFullYear() - 2020} duration={4} />+
             </p>
             <p>Experience Since 2020</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Route className="text-primary" />
+            <Route className="text-secondary" />
             <p className="text-3xl font-bold text-primary">
               <CountUp end={5000000} suffix="+" duration={4} />
             </p>
             <p>Miles Driven</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <Package className="text-primary" />
+            <Package className="text-secondary" />
             <p className="text-3xl font-bold text-primary">
               <CountUp end={12000} suffix="+" duration={4} />
             </p>
             <p>Loads Delivered</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <CheckCircle className="text-primary" />
+            <CheckCircle className="text-secondary" />
             <p className="text-3xl font-bold text-primary">
               <CountUp end={99} suffix="%" duration={4} />
             </p>
@@ -153,17 +153,17 @@ const Home: React.FC = () => {
             {
               title: 'LTL Shipping',
               slug: 'ltl',
-              icon: <Package className="w-10 h-10 text-primary" />,
+              icon: <Package className="w-10 h-10 text-secondary" />,
             },
             {
               title: 'FTL Shipping',
               slug: 'ftl',
-              icon: <Truck className="w-10 h-10 text-primary" />,
+              icon: <Truck className="w-10 h-10 text-secondary" />,
             },
             {
               title: 'Refrigerated Transport',
               slug: 'refrigerated',
-              icon: <Snowflake className="w-10 h-10 text-primary" />,
+              icon: <Snowflake className="w-10 h-10 text-secondary" />,
             },
           ].map((service) => (
             <Card

@@ -11,10 +11,10 @@
   @apply inline-block transform transition-all duration-300 text-white font-body;
 }
 .truck-nav-link:hover {
-  @apply text-primary scale-110;
+  @apply text-secondary scale-110;
 }
 .truck-nav-link.active {
-  @apply text-primary;
+  @apply text-secondary;
 }
 .truck-nav-link svg {
   @apply fill-current stroke-current;

@@ -16,9 +16,9 @@ const Services: React.FC = () => {
   const [services, setServices] = useState<ServiceInfo[]>([]);
 
   const serviceIcons: Record<string, React.ReactNode> = {
-    ltl: <Package className="w-10 h-10 text-primary" />,
-    ftl: <Truck className="w-10 h-10 text-primary" />,
-    refrigerated: <Snowflake className="w-10 h-10 text-primary" />,
+    ltl: <Package className="w-10 h-10 text-secondary" />,
+    ftl: <Truck className="w-10 h-10 text-secondary" />,
+    refrigerated: <Snowflake className="w-10 h-10 text-secondary" />,
   };
 
   useEffect(() => {
