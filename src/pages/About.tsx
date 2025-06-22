@@ -79,8 +79,8 @@ const About: React.FC = () => {
             },
             {
               src: SemiTruckImg,
-              title: "Semi Truck",
-              desc: "We operate all kinds of semi trucks to handle diverse hauling needs.",
+              title: "Flatbed",
+              desc: "Our versatile flatbeds safely move oversized or irregular freight with ease.",
             },
             {
               src: RefrigeratedImg,
@@ -110,7 +110,7 @@ const About: React.FC = () => {
       </Section>
 
       <Section title="Executive Team">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center place-items-center">
+        <div className="grid w-fit mx-auto grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
           {[
             {
               name: "Parminder Singh",
