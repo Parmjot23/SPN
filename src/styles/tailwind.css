@@ -43,3 +43,15 @@
   stroke-width: 2;
   fill: none;
 }
+
+@layer utilities {
+  @keyframes gradientBG {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .bg-animated {
+    background: linear-gradient(-45deg, #0d1321, #1d2a4d, #FF5722, #1E88E5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+}
