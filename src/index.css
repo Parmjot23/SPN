@@ -1,6 +1,14 @@
+@import "@fontsource/inter/variable.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/montserrat/700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body { @apply font-body; }
+h1, h2, h3, h4, h5, h6 { @apply font-heading; }
+.counter { @apply font-counter; }
 
 /* custom styles, if any */
 
@@ -8,13 +16,13 @@
 
 /* Truck navigation link styles */
 .truck-nav-link {
-  @apply inline-block transform transition-all duration-300 text-white font-body;
+  @apply inline-block transform transition-all duration-300 text-light font-body;
 }
 .truck-nav-link:hover {
-  @apply text-secondary scale-110;
+  @apply text-info scale-110;
 }
 .truck-nav-link.active {
-  @apply text-secondary;
+  @apply text-accent underline;
 }
 .truck-nav-link svg {
   @apply fill-current stroke-current;
@@ -45,13 +53,15 @@
 }
 
 @layer utilities {
-  @keyframes gradientBG {
-    0%, 100% { background-position: 0% 50%; }
+  @keyframes gradientShift {
+    0%,100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
-  .bg-animated {
-    background: linear-gradient(-45deg, #0d1321, #1d2a4d, #FF5722, #1E88E5);
+  .animated-bg {
+    background: linear-gradient(130deg,#0d1117,#2088ff,#2a9d8f);
     background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    animation: gradientShift 18s ease infinite;
   }
+  .section-dark { @apply bg-primary text-light; }
+  .section-light { @apply bg-light text-primary; }
 }
