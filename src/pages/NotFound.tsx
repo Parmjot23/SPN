@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../ui/Button';
-import heroVideo from '../assets/mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4';
 
 const NotFound: React.FC = () => {
   return (
@@ -12,14 +11,6 @@ const NotFound: React.FC = () => {
         <title>SPN Logistics | 404</title>
       </Helmet>
       <section className="relative h-screen flex items-center justify-center">
-        <video
-          className="absolute w-full h-full object-cover"
-          src={heroVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1

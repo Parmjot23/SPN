@@ -4,6 +4,7 @@ import Navbar from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import ScrollTop from '../layout/ScrollTop';
 import ScrollToTopOnRouteChange from '../layout/ScrollToTopOnRouteChange';
+import BackgroundVideo from '../layout/BackgroundVideo';
 
 // Lazy-loaded pages
 const Home = lazy(() => import('../pages/Home'));
@@ -19,6 +20,7 @@ const AppRoutes: React.FC = () => {
 
   return (
     <>
+      {!isHome && <BackgroundVideo />}
       <Navbar />
       <ScrollToTopOnRouteChange />
       <ScrollTop />
