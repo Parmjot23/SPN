@@ -1,25 +1,40 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
-import Section from '../ui/Section';
-import Card from '../ui/Card';
-import Button from '../ui/Button';
-import { Truck, Route, Package, CheckCircle, Snowflake } from 'lucide-react';
-import { useNavigate, Link } from 'react-router-dom';
-import partnerImg1 from '../assets/ChatGPT Image Jun 7, 2025, 02_58_55 PM.png';
-import partnerImg2 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_03 PM.png';
-import partnerImg3 from '../assets/ChatGPT Image Jun 7, 2025, 03_00_52 PM.png';
-import reviewMen from '../assets/review_men.png';
-import reviewMen2 from '../assets/review_men2.png';
-import reviewMenSukhpreet from '../assets/review_men_sukhpreet.png';
-import reviewWomen from '../assets/review_women.png';
-import heroVideo from '../assets/mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4';
-import Slider from 'react-slick';
+import React from "react";
+import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import Section from "../ui/Section";
+import Card from "../ui/Card";
+import Button from "../ui/Button";
+import {
+  Truck,
+  Route,
+  Package,
+  CheckCircle,
+  Snowflake,
+  Calendar,
+  Map,
+  Archive,
+  Clock,
+  Shield,
+  Award,
+  DollarSign,
+  HeartPulse,
+  MapPin,
+} from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
+import partnerImg1 from "../assets/ChatGPT Image Jun 7, 2025, 02_58_55 PM.png";
+import partnerImg2 from "../assets/ChatGPT Image Jun 7, 2025, 03_00_03 PM.png";
+import partnerImg3 from "../assets/ChatGPT Image Jun 7, 2025, 03_00_52 PM.png";
+import reviewMen from "../assets/review_men.png";
+import reviewMen2 from "../assets/review_men2.png";
+import reviewMenSukhpreet from "../assets/review_men_sukhpreet.png";
+import reviewWomen from "../assets/review_women.png";
+import heroVideo from "../assets/mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4";
+import Slider from "react-slick";
 
 // For react-slick slider
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home: React.FC = () => {
   const testimonialSettings = {
@@ -34,28 +49,28 @@ const Home: React.FC = () => {
   const testimonials = [
     {
       quote:
-        'SPN Logistics has been a reliable partner. Our loads always arrive on schedule.',
-      name: 'John Doe',
-      role: 'Logistics Manager, ACME Corp',
+        "SPN Logistics has been a reliable partner. Our loads always arrive on schedule.",
+      name: "John Doe",
+      role: "Logistics Manager, ACME Corp",
       avatar: reviewMen,
     },
     {
       quote:
-        'Their long-haul expertise has been game-changing for our supply chain.',
-      name: 'Jane Smith',
-      role: 'Operations Director, Global X',
+        "Their long-haul expertise has been game-changing for our supply chain.",
+      name: "Jane Smith",
+      role: "Operations Director, Global X",
       avatar: reviewWomen,
     },
     {
-      quote: 'Great communication and on-time deliveries every time.',
-      name: 'Mike Johnson',
-      role: 'Supply Chain Lead, Widgets Inc',
+      quote: "Great communication and on-time deliveries every time.",
+      name: "Mike Johnson",
+      role: "Supply Chain Lead, Widgets Inc",
       avatar: reviewMen2,
     },
     {
-      quote: 'A dependable carrier that we trust with our freight.',
-      name: 'Sukhpreet Singh',
-      role: 'Dispatch Manager, FastLane LLC',
+      quote: "A dependable carrier that we trust with our freight.",
+      name: "Sukhpreet Singh",
+      role: "Dispatch Manager, FastLane LLC",
       avatar: reviewMenSukhpreet,
     },
   ];
@@ -77,7 +92,7 @@ const Home: React.FC = () => {
       <section className="relative h-screen flex items-center justify-center">
         <video
           className="fixed inset-0 w-full h-full object-cover -z-10"
-          src={heroVideo}        // ⬅️  UPDATED: uses the imported path
+          src={heroVideo} // ⬅️  UPDATED: uses the imported path
           autoPlay
           loop
           muted
@@ -116,29 +131,29 @@ const Home: React.FC = () => {
       <Section>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="flex flex-col items-center gap-2">
-
-            <p className="text-3xl font-bold text-primary">
+            <Calendar className="text-accent" />
+            <p className="text-3xl font-bold text-primary counter">
               <CountUp end={new Date().getFullYear() - 2020} duration={4} />+
             </p>
             <p>Experience Since 2020</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-
-            <p className="text-3xl font-bold text-primary">
+            <Map className="text-accent" />
+            <p className="text-3xl font-bold text-primary counter">
               <CountUp end={5000000} suffix="+" duration={4} />
             </p>
             <p>Miles Driven</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-
-            <p className="text-3xl font-bold text-primary">
+            <Archive className="text-accent" />
+            <p className="text-3xl font-bold text-primary counter">
               <CountUp end={12000} suffix="+" duration={4} />
             </p>
             <p>Loads Delivered</p>
           </div>
           <div className="flex flex-col items-center gap-2">
-
-            <p className="text-3xl font-bold text-primary">
+            <Clock className="text-accent" />
+            <p className="text-3xl font-bold text-primary counter">
               <CountUp end={99} suffix="%" duration={4} />
             </p>
             <p>On-Time Rate</p>
@@ -151,19 +166,19 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto justify-items-center">
           {[
             {
-              title: 'LTL Shipping',
-              slug: 'ltl',
-
+              title: "LTL Shipping",
+              slug: "ltl",
+              icon: <Package className="text-accent" />,
             },
             {
-              title: 'FTL Shipping',
-              slug: 'ftl',
-
+              title: "FTL Shipping",
+              slug: "ftl",
+              icon: <Truck className="text-accent" />,
             },
             {
-              title: 'Refrigerated Transport',
-              slug: 'refrigerated',
-
+              title: "Refrigerated Transport",
+              slug: "refrigerated",
+              icon: <Snowflake className="text-accent" />,
             },
           ].map((service) => (
             <Card
@@ -171,7 +186,7 @@ const Home: React.FC = () => {
               title={service.title}
               subtitle="Learn More"
               icon={service.icon}
-              onClick={() => navigate('/services')}
+              onClick={() => navigate("/services")}
               className="text-center"
             />
           ))}
@@ -182,16 +197,28 @@ const Home: React.FC = () => {
       <Section title="Why Choose SPN Logistics">
         <ul className="space-y-8">
           {[
-            ['Safety First', 'We prioritize safety and compliance at every mile.'],
-            ['Modern Fleet', 'Our trucks are up-to-date and well-maintained for any haul.'],
-            ['Expert Drivers', 'Our dedicated team ensures on-time deliveries every time.'],
-          ].map(([heading, copy], i) => (
+            [
+              "Safety First",
+              "We prioritize safety and compliance at every mile.",
+              <Shield className="text-accent" />,
+            ],
+            [
+              "Modern Fleet",
+              "Our trucks are up-to-date and well-maintained for any haul.",
+              <Truck className="text-accent" />,
+            ],
+            [
+              "Expert Drivers",
+              "Our dedicated team ensures on-time deliveries every time.",
+              <Award className="text-accent" />,
+            ],
+          ].map(([heading, copy, icon], i) => (
             <li
               key={heading}
               className="flex flex-col md:flex-row items-start md:items-center gap-4"
             >
               <div className="bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full">
-                {i + 1}
+                {icon}
               </div>
               <div>
                 <h3 className="font-semibold">{heading}</h3>

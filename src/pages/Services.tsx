@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { getAllServices } from '../services/api';
-import Section from '../ui/Section';
-import Card from '../ui/Card';
-import { Package, Truck, Snowflake } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { getAllServices } from "../services/api";
+import Section from "../ui/Section";
+import Card from "../ui/Card";
+import { Package, Truck, Snowflake } from "lucide-react";
 
 interface ServiceInfo {
   slug: string;
@@ -16,7 +16,9 @@ const Services: React.FC = () => {
   const [services, setServices] = useState<ServiceInfo[]>([]);
 
   const serviceIcons: Record<string, React.ReactNode> = {
-
+    ltl: <Package className="text-accent" />,
+    ftl: <Truck className="text-accent" />,
+    refrigerated: <Snowflake className="text-accent" />,
   };
 
   useEffect(() => {
