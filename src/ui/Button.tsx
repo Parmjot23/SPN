@@ -1,17 +1,21 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
 }
 
-const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  variant = "primary",
+  children,
+  ...props
+}) => {
   const baseClass =
-    'px-6 py-2 rounded text-white focus:outline-none font-semibold shadow-md';
+    "px-6 py-2 rounded text-white focus:outline-none font-semibold shadow-md";
 
   const variants: { [key in typeof variant]: string } = {
-    primary: `bg-primary hover:bg-orange-600`,
-    secondary: `bg-gray-700 hover:bg-gray-800`
+    primary: `bg-accent hover:bg-accent/80`,
+    secondary: `bg-gray-700 hover:bg-gray-800`,
   };
 
   return (

@@ -1,7 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import CountUp from 'react-countup';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import CountUp from "react-countup";
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +9,9 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Quick Links */}
         <div>
-          <h4 className="text-lg font-semibold mb-4 text-primary">Quick Links</h4>
+          <h4 className="text-lg font-semibold mb-4 text-accent">
+            Quick Links
+          </h4>
           <ul className="space-y-2">
             <li>
               <NavLink to="/">Home</NavLink>
@@ -30,7 +32,9 @@ const Footer: React.FC = () => {
         </div>
         {/* Newsletter */}
         <div>
-          <h4 className="text-lg font-semibold mb-4 text-primary">Stay Updated</h4>
+          <h4 className="text-lg font-semibold mb-4 text-accent">
+            Stay Updated
+          </h4>
           <form className="flex flex-col">
             <input
               type="email"
@@ -39,7 +43,7 @@ const Footer: React.FC = () => {
             />
             <button
               type="submit"
-              className="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded"
+              className="bg-accent hover:bg-accent/80 text-white px-4 py-2 rounded"
             >
               Subscribe
             </button>
@@ -47,7 +51,7 @@ const Footer: React.FC = () => {
         </div>
         {/* KPI Counters */}
         <div>
-          <h4 className="text-lg font-semibold mb-4 text-primary">Our Impact</h4>
+          <h4 className="text-lg font-semibold mb-4 text-accent">Our Impact</h4>
           <div className="space-y-2">
             <p className="flex items-center gap-2">
               <span className="font-bold text-xl">
@@ -66,23 +70,23 @@ const Footer: React.FC = () => {
       </div>
       <div className="max-w-7xl mx-auto px-4 mt-8 flex flex-col md:flex-row justify-between items-center text-sm">
         <p className="mb-4 md:mb-0">
-          &copy; {new Date().getFullYear()} SPN Logistics.{' '}
+          &copy; {new Date().getFullYear()} SPN Logistics.{" "}
           <a href="https://www.madebyparm.com" className="underline">
             Made by Parm
           </a>
         </p>
         <div className="flex gap-4">
-          <a href="https://facebook.com">
-            <Facebook size={18} />
+          <a href="https://facebook.com" className="hover:text-accent">
+            <Facebook size={20} />
           </a>
-          <a href="https://twitter.com">
-            <Twitter size={18} />
+          <a href="https://twitter.com" className="hover:text-accent">
+            <Twitter size={20} />
           </a>
-          <a href="https://linkedin.com">
-            <Linkedin size={18} />
+          <a href="https://linkedin.com" className="hover:text-accent">
+            <Linkedin size={20} />
           </a>
-          <a href="https://instagram.com">
-            <Instagram size={18} />
+          <a href="https://instagram.com" className="hover:text-accent">
+            <Instagram size={20} />
           </a>
         </div>
       </div>

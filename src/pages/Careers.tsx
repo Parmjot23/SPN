@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import Section from '../ui/Section';
-import Button from '../ui/Button';
-import { useForm, FormProvider } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { useFormEmail } from '../hooks/useFormEmail';
-import toast from 'react-hot-toast';
+import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import Section from "../ui/Section";
+import Button from "../ui/Button";
+import { useForm, FormProvider } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useFormEmail } from "../hooks/useFormEmail";
+import toast from "react-hot-toast";
+import { DollarSign, HeartPulse, MapPin } from "lucide-react";
 
 const driverSchema = z.object({
-  firstName: z.string().min(1, 'Required'),
-  lastName: z.string().min(1, 'Required'),
-  email: z.string().email('Invalid email'),
-  phone: z.string().min(5, 'Invalid phone number'),
-  experience: z.string().min(1, 'Required'),
-  licenseNumber: z.string().min(1, 'Required')
+  firstName: z.string().min(1, "Required"),
+  lastName: z.string().min(1, "Required"),
+  email: z.string().email("Invalid email"),
+  phone: z.string().min(5, "Invalid phone number"),
+  experience: z.string().min(1, "Required"),
+  licenseNumber: z.string().min(1, "Required"),
 });
 
 type DriverFormType = z.infer<typeof driverSchema>;
@@ -23,7 +24,7 @@ const Careers: React.FC = () => {
   const [step, setStep] = useState(1);
   const methods = useForm<DriverFormType>({
     resolver: zodResolver(driverSchema),
-    mode: 'onChange'
+    mode: "onChange",
   });
   const { handleSubmit } = methods;
   const { sendEmail } = useFormEmail();
@@ -34,14 +35,14 @@ const Careers: React.FC = () => {
   const onSubmit = async (data: DriverFormType) => {
     const { success, error } = await sendEmail({
       ...data,
-      subject: 'Driver Application'
+      subject: "Driver Application",
     });
     if (success) {
-      toast.success('Application submitted successfully!');
+      toast.success("Application submitted successfully!");
       methods.reset();
       setStep(1);
     } else {
-      toast.error('Something went wrong. Please try again later.');
+      toast.error("Something went wrong. Please try again later.");
       console.error(error);
     }
   };
@@ -53,10 +54,12 @@ const Careers: React.FC = () => {
       </Helmet>
       <Section>
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-primary mb-6">Careers at SPN Logistics</h1>
+          <h1 className="text-3xl font-bold text-primary mb-6">
+            Careers at SPN Logistics
+          </h1>
           <p className="max-w-xl mx-auto mb-8">
-            Join our fleet and be part of a growing, dedicated team that values safety and on-time
-            performance.
+            Join our fleet and be part of a growing, dedicated team that values
+            safety and on-time performance.
           </p>
         </div>
       </Section>
@@ -64,12 +67,30 @@ const Careers: React.FC = () => {
       <Section title="Benefits">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { title: 'Competitive Pay', desc: 'Earn top rates per mile plus bonuses.' },
-            { title: 'Health & Retirement', desc: 'We offer comprehensive benefits and 401K.' },
-            { title: 'Flexible Routes', desc: 'Choose local, regional, or OTR routes.' }
+            {
+              title: "Competitive Pay",
+              desc: "Earn top rates per mile plus bonuses.",
+              icon: <DollarSign className="text-accent" />,
+            },
+            {
+              title: "Health & Retirement",
+              desc: "We offer comprehensive benefits and 401K.",
+              icon: <HeartPulse className="text-accent" />,
+            },
+            {
+              title: "Flexible Routes",
+              desc: "Choose local, regional, or OTR routes.",
+              icon: <MapPin className="text-accent" />,
+            },
           ].map((benefit, i) => (
-            <div key={i} className="bg-white dark:bg-darkBg2 rounded p-4 shadow">
-              <h4 className="text-lg font-bold text-primary mb-2">{benefit.title}</h4>
+            <div
+              key={i}
+              className="bg-white dark:bg-darkBg2 rounded p-4 shadow text-center"
+            >
+              <div className="mb-2 flex justify-center">{benefit.icon}</div>
+              <h4 className="text-lg font-bold text-primary mb-2">
+                {benefit.title}
+              </h4>
               <p>{benefit.desc}</p>
             </div>
           ))}
@@ -87,7 +108,7 @@ const Careers: React.FC = () => {
                   </label>
                   <input
                     id="firstName"
-                    {...methods.register('firstName')}
+                    {...methods.register("firstName")}
                     className="w-full p-2 rounded border"
                   />
                   {methods.formState.errors.firstName && (
@@ -102,7 +123,7 @@ const Careers: React.FC = () => {
                   </label>
                   <input
                     id="lastName"
-                    {...methods.register('lastName')}
+                    {...methods.register("lastName")}
                     className="w-full p-2 rounded border"
                   />
                   {methods.formState.errors.lastName && (
@@ -126,7 +147,7 @@ const Careers: React.FC = () => {
                   </label>
                   <input
                     id="email"
-                    {...methods.register('email')}
+                    {...methods.register("email")}
                     className="w-full p-2 rounded border"
                   />
                   {methods.formState.errors.email && (
@@ -141,7 +162,7 @@ const Careers: React.FC = () => {
                   </label>
                   <input
                     id="phone"
-                    {...methods.register('phone')}
+                    {...methods.register("phone")}
                     className="w-full p-2 rounded border"
                   />
                   {methods.formState.errors.phone && (
@@ -168,7 +189,7 @@ const Careers: React.FC = () => {
                   </label>
                   <input
                     id="experience"
-                    {...methods.register('experience')}
+                    {...methods.register("experience")}
                     className="w-full p-2 rounded border"
                   />
                   {methods.formState.errors.experience && (
@@ -183,7 +204,7 @@ const Careers: React.FC = () => {
                   </label>
                   <input
                     id="licenseNumber"
-                    {...methods.register('licenseNumber')}
+                    {...methods.register("licenseNumber")}
                     className="w-full p-2 rounded border"
                   />
                   {methods.formState.errors.licenseNumber && (
