@@ -8,14 +8,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['"Playfair Display"', 'serif'],
-        body: ['Roboto', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        counter: ['Montserrat', 'sans-serif'],
       },
       colors: {
-        primary: '#FF5722',
-        secondary: '#1E88E5',
-        darkBg: '#0d1321',
-        darkBg2: '#1d2a4d',
+        primary:  '#0d1117',
+        accent:   '#e76f51',
+        info:     '#2088ff',
+        success:  '#2a9d8f',
+        warn:     '#ffba08',
+        light:    '#fdfdfd',
       },
       backgroundImage: {
         'gradient-hero': 'linear-gradient(to bottom right, #0d1321, #1d2a4d)',

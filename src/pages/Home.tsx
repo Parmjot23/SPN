@@ -76,14 +76,14 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
         <video
-          className="absolute w-full h-full object-cover"
+          className="fixed inset-0 w-full h-full object-cover -z-10"
           src={heroVideo}        // ⬅️  UPDATED: uses the imported path
           autoPlay
           loop
           muted
           playsInline
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-primary/60 backdrop-blur" />
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
