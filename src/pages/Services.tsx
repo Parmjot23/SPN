@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { getAllServices } from '../services/api';
 import Section from '../ui/Section';
-import Card from '../ui/Card';
 import { Package, Truck, Snowflake } from 'lucide-react';
 
 interface ServiceInfo {
@@ -16,9 +15,9 @@ const Services: React.FC = () => {
   const [services, setServices] = useState<ServiceInfo[]>([]);
 
   const serviceIcons: Record<string, React.ReactNode> = {
-    ltl: <Package className="w-10 h-10 text-secondary" />,
-    ftl: <Truck className="w-10 h-10 text-secondary" />,
-    refrigerated: <Snowflake className="w-10 h-10 text-secondary" />,
+    ltl: <Package className="w-10 h-10 text-primary" />,
+    ftl: <Truck className="w-10 h-10 text-primary" />,
+    refrigerated: <Snowflake className="w-10 h-10 text-primary" />,
   };
 
   useEffect(() => {
@@ -31,17 +30,34 @@ const Services: React.FC = () => {
         <title>SPN Logistics | Services</title>
       </Helmet>
       <Section title="Our Services">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto justify-items-center">
-          {services.map((service) => (
-            <Card
-              key={service.slug}
-              title={service.title}
-              icon={serviceIcons[service.slug]}
-              className="space-y-2 text-center"
-            >
-              <p>{service.description}</p>
-            </Card>
-          ))}
+        <div className="space-y-12">
+          {services.map((service, idx) => {
+            const vertical = idx % 3 === 2;
+            const reverse = idx % 2 === 1 && !vertical;
+            return (
+              <div
+                key={service.slug}
+                className={`flex flex-col items-center gap-6 ${
+                  vertical ? '' : 'md:flex-row'
+                } ${reverse ? 'md:flex-row-reverse' : ''}`}
+              >
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className={`w-full md:w-1/2 rounded shadow object-cover h-64`}
+                />
+                <div className={`md:w-1/2 ${vertical ? 'text-center' : ''}`}>
+                  <div className="mb-4 flex justify-center md:justify-start">
+                    {serviceIcons[service.slug]}
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-2">
+                    {service.title}
+                  </h3>
+                  <p>{service.description}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Section>
     </>
