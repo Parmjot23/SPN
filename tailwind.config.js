@@ -20,7 +20,7 @@ module.exports = {
         darkBg2: "#1E1E1E",
       },
       backgroundImage: {
-        "gradient-hero": "linear-gradient(to bottom right, #0d1321, #1d2a4d)",
+        "gradient-hero": "linear-gradient(to bottom right, #f3f9ff, #dceafe)",
       },
     },
   },

@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 { @apply font-heading; }
     50% { background-position: 100% 50%; }
   }
   .animated-bg {
-    background: linear-gradient(130deg,#0d1117,#2088ff,#2a9d8f);
+    background: linear-gradient(130deg,#ffffff,#e0f2ff,#d0f5f0);
     background-size: 400% 400%;
     animation: gradientShift 18s ease infinite;
   }

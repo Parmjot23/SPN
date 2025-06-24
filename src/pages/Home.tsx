@@ -98,7 +98,7 @@ const Home: React.FC = () => {
           muted
           playsInline
         />
-        <div className="absolute inset-0 bg-primary/60 backdrop-blur" />
+        <div className="absolute inset-0 bg-black/60 backdrop-blur" />
         <div className="relative z-10 text-center text-white px-4">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
