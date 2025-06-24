@@ -44,6 +44,32 @@ const Services: React.FC = () => {
           ))}
         </div>
       </Section>
+      {services.map((service, index) => {
+        const layout = index % 3;
+        const layoutClass =
+          layout === 0
+            ? "md:flex-row"
+            : layout === 1
+            ? "md:flex-row-reverse"
+            : "";
+        return (
+          <Section key={service.slug}>
+            <div className={`flex flex-col items-center gap-6 md:gap-10 ${layoutClass}`}>
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full md:w-1/2 h-64 object-cover rounded"
+              />
+              <div className="md:w-1/2 space-y-4 text-center md:text-left">
+                <h3 className="text-2xl font-bold text-primary font-heading">
+                  {service.title}
+                </h3>
+                <p>{service.description}</p>
+              </div>
+            </div>
+          </Section>
+        );
+      })}
     </>
   );
 };

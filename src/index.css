@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 { @apply font-heading; }
   @apply inline-block transform transition-all duration-300 text-light font-body;
 }
 .truck-nav-link:hover {
-  @apply text-info scale-110;
+  @apply text-accent scale-110;
 }
 .truck-nav-link.active {
   @apply text-accent underline;

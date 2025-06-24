@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
               <NavLink
                 to={to}
                 className={({ isActive }) =>
-                  `transition-colors hover:text-accent ${
+                  `transition-colors hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent rounded ${
                     isActive ? "text-accent underline" : ""
                   }`
                 }
