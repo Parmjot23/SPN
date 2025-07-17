@@ -15,9 +15,9 @@ const Services: React.FC = () => {
   const [services, setServices] = useState<ServiceInfo[]>([]);
 
   const serviceIcons: Record<string, React.ReactNode> = {
-    ltl: <Package className="w-10 h-10 text-primary" />,
-    ftl: <Truck className="w-10 h-10 text-primary" />,
-    refrigerated: <Snowflake className="w-10 h-10 text-primary" />,
+    ltl: <Package className="w-10 h-10 text-primary-500" />,
+    ftl: <Truck className="w-10 h-10 text-primary-500" />,
+    refrigerated: <Snowflake className="w-10 h-10 text-primary-500" />,
   };
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const Services: React.FC = () => {
                   <div className="mb-4 flex justify-center md:justify-start">
                     {serviceIcons[service.slug]}
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-2">
+                  <h3 className="text-xl font-bold text-primary-500 mb-2">
                     {service.title}
                   </h3>
                   <p>{service.description}</p>

@@ -19,7 +19,7 @@ const About: React.FC = () => {
       </Helmet>
       <Section>
         <div className="text-center max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold text-primary mb-6">Our Journey</h1>
+          <h1 className="text-3xl font-bold text-primary-500 mb-6">Our Journey</h1>
           <p className="mb-8">
             Founded in 2020 with a single truck and a big dream, SPN Logistics
             has grown quickly across North America. Here's a look at some of the
@@ -59,7 +59,7 @@ const About: React.FC = () => {
                 className="relative pl-8 pb-8"
               >
                 <span className="absolute left-0 top-2 w-3 h-3 bg-primary rounded-full" />
-                <h3 className="font-semibold text-primary mb-1">
+                <h3 className="font-semibold text-primary-500 mb-1">
                   {event.year}
                 </h3>
                 <p>{event.text}</p>
@@ -129,7 +129,7 @@ const About: React.FC = () => {
                   alt={exec.name}
                 />
               </div>
-              <h3 className="text-lg font-bold text-primary mb-1">
+              <h3 className="text-lg font-bold text-primary-500 mb-1">
                 {exec.name}
               </h3>
               <p className="text-sm">{exec.role}</p>

@@ -42,7 +42,7 @@ const ServiceDetails: React.FC = () => {
             className="w-full h-64 object-cover rounded"
           />
         )}
-        <h1 className="text-3xl font-bold text-primary">{service.title}</h1>
+                  <h1 className="text-3xl font-bold text-primary-500">{service.title}</h1>
         <p>{service.description}</p>
       </div>
     </>

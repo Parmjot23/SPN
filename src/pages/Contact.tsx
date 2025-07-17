@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
         <title>SPN Logistics | Contact</title>
       </Helmet>
       <Section>
-        <h1 className="text-3xl font-bold text-primary text-center mb-6">Contact Us</h1>
+        <h1 className="text-3xl font-bold text-primary-500 text-center mb-6">Contact Us</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <div className="mb-4">

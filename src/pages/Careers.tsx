@@ -53,7 +53,7 @@ const Careers: React.FC = () => {
       </Helmet>
       <Section>
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-primary mb-6">Careers at SPN Logistics</h1>
+          <h1 className="text-3xl font-bold text-primary-500 mb-6">Careers at SPN Logistics</h1>
           <p className="max-w-xl mx-auto mb-8">
             Join our fleet and be part of a growing, dedicated team that values safety and on-time
             performance.
@@ -69,7 +69,7 @@ const Careers: React.FC = () => {
             { title: 'Flexible Routes', desc: 'Choose local, regional, or OTR routes.' }
           ].map((benefit, i) => (
             <div key={i} className="bg-white dark:bg-darkBg2 rounded p-4 shadow">
-              <h4 className="text-lg font-bold text-primary mb-2">{benefit.title}</h4>
+              <h4 className="text-lg font-bold text-primary-500 mb-2">{benefit.title}</h4>
               <p>{benefit.desc}</p>
             </div>
           ))}
