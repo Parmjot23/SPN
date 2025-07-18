@@ -120,7 +120,7 @@ const Home: React.FC = () => {
       </Helmet>
 
       {/* Enhanced Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-20">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden -mt-16 lg:-mt-20">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video
