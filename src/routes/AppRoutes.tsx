@@ -22,7 +22,7 @@ const AppRoutes: React.FC = () => {
       <Navbar />
       <ScrollToTopOnRouteChange />
       <ScrollTop />
-      <main className="pt-20">
+      <main className="pt-16 lg:pt-20">
         <Suspense
           fallback={
             <div className="min-h-screen flex items-center justify-center">
