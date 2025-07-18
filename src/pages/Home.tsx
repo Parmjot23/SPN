@@ -625,9 +625,9 @@ const Home: React.FC = () => {
             >
               <p className="text-neutral-400 mb-4">Need immediate assistance?</p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white">
-                <a href="tel:+1234567890" className="flex items-center space-x-2 hover:text-primary-400 transition-colors">
+                <a href="tel:+16139006194" className="flex items-center space-x-2 hover:text-primary-400 transition-colors">
                   <Phone className="w-5 h-5" />
-                  <span className="font-semibold">(123) 456-7890</span>
+                  <span className="font-semibold">+1(613)900-6194</span>
                 </a>
                 <span className="hidden sm:block text-neutral-500">|</span>
                 <a href="mailto:info@spnlogistics.com" className="hover:text-primary-400 transition-colors font-semibold">
