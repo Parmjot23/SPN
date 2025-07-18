@@ -54,18 +54,42 @@ const TruckNavLink: React.FC<TruckNavLinkProps> = ({
       to={to}
       onClick={onClick}
       className={({ isActive }) => {
-        const baseClasses = `relative font-medium transition-all duration-300 ${className}`;
-        const activeClasses = isActive ? 'text-primary-400 font-semibold' : '';
+        const baseClasses = `relative font-medium transition-all duration-300 overflow-hidden ${className}`;
+        const activeClasses = isActive ? 'text-blue-600 dark:text-blue-400 font-semibold' : '';
         return `${baseClasses} ${activeClasses}`;
       }}
     >
-      <motion.span
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        className="block"
-      >
-        {text}
-      </motion.span>
+      {({ isActive }) => (
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          className="relative block"
+        >
+          <span className="relative z-10">{text}</span>
+          
+          {/* Active indicator line */}
+          {isActive && (
+            <motion.div
+              layoutId="activeTab"
+              initial={false}
+              className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 30
+              }}
+            />
+          )}
+          
+          {/* Hover effect background */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 rounded-xl opacity-0"
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.2 }}
+          />
+        </motion.div>
+      )}
     </NavLink>
   );
 };

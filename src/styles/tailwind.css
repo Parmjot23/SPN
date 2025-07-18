@@ -18,21 +18,25 @@
 
 /* Custom component styles */
 @layer components {
-  /* Truck navigation link styles */
+  /* Modern truck navigation link styles */
   .truck-nav-link {
     @apply inline-block transform transition-all duration-300 text-white font-body drop-shadow-md;
   }
   
   .truck-nav-link:hover {
-    @apply text-primary-300 scale-105;
+    @apply text-blue-300 scale-105 drop-shadow-lg;
   }
   
   .truck-nav-link.active {
-    @apply text-primary-400 font-semibold;
+    @apply text-blue-400 font-semibold;
   }
   
   .truck-nav-link svg {
-    @apply fill-current stroke-current drop-shadow-sm;
+    @apply fill-current stroke-current drop-shadow-sm transition-all duration-300;
+  }
+  
+  .truck-nav-link:hover svg {
+    @apply drop-shadow-lg;
   }
   
   .truck-text {
