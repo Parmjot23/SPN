@@ -35,7 +35,7 @@ const ScrollTop: React.FC = () => {
           className="fixed bottom-5 right-5 rounded-full bg-primary p-3 text-white shadow-lg"
           aria-label="Scroll to top"
         >
-          <ChevronUp />
+          <ChevronUp className="text-primary-500" />
         </motion.button>
       )}
     </AnimatePresence>
