@@ -20,19 +20,19 @@
 @layer components {
   /* Truck navigation link styles */
   .truck-nav-link {
-    @apply inline-block transform transition-all duration-300 text-white font-body;
+    @apply inline-block transform transition-all duration-300 text-white font-body drop-shadow-md;
   }
   
   .truck-nav-link:hover {
-    @apply text-primary-400 scale-110;
+    @apply text-primary-300 scale-105;
   }
   
   .truck-nav-link.active {
-    @apply text-primary-400;
+    @apply text-primary-400 font-semibold;
   }
   
   .truck-nav-link svg {
-    @apply fill-current stroke-current;
+    @apply fill-current stroke-current drop-shadow-sm;
   }
   
   .truck-text {

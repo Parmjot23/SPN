@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled 
           ? 'bg-white/95 dark:bg-darkBg/95 backdrop-blur-lg shadow-lg border-b border-neutral-200 dark:border-neutral-700' 
-          : 'bg-transparent'
+          : 'bg-black/30 backdrop-blur-md'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
               className={`font-bold text-xl lg:text-2xl tracking-wide font-heading transition-colors duration-300 ${
                 scrolled 
                   ? 'text-neutral-900 dark:text-neutral-100' 
-                  : 'text-white'
+                  : 'text-white drop-shadow-lg'
               }`}
             >
               SPN Logistics
@@ -78,10 +78,10 @@ const Navbar: React.FC = () => {
                 <TruckNavLink 
                   to={item.to} 
                   text={item.text}
-                  className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
                     scrolled 
                       ? 'text-neutral-700 dark:text-neutral-300 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20' 
-                      : 'text-white hover:text-primary-300 hover:bg-white/10'
+                      : 'text-white drop-shadow-md hover:text-primary-300 hover:bg-white/20 hover:backdrop-blur-md'
                   }`}
                 />
               </motion.div>
@@ -95,7 +95,7 @@ const Navbar: React.FC = () => {
             className={`lg:hidden p-2 rounded-lg transition-colors duration-300 ${
               scrolled 
                 ? 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800' 
-                : 'text-white hover:bg-white/10'
+                : 'text-white drop-shadow-md hover:bg-white/20'
             }`}
             aria-label="Toggle navigation"
           >

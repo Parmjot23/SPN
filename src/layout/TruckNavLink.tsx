@@ -55,13 +55,14 @@ const TruckNavLink: React.FC<TruckNavLinkProps> = ({
       onClick={onClick}
       className={({ isActive }) => {
         const baseClasses = `relative font-medium transition-all duration-300 ${className}`;
-        const activeClasses = isActive ? 'text-primary-500' : '';
+        const activeClasses = isActive ? 'text-primary-400 font-semibold' : '';
         return `${baseClasses} ${activeClasses}`;
       }}
     >
       <motion.span
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        className="block"
       >
         {text}
       </motion.span>
