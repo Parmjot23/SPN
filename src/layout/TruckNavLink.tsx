@@ -8,14 +8,16 @@ interface TruckNavLinkProps {
   onClick?: () => void;
   className?: string;
   showTruck?: boolean;
+  icon?: React.ReactNode;
 }
 
-const TruckNavLink: React.FC<TruckNavLinkProps> = ({ 
-  to, 
-  text, 
-  onClick, 
+const TruckNavLink: React.FC<TruckNavLinkProps> = ({
+  to,
+  text,
+  onClick,
   className = '',
-  showTruck = false 
+  showTruck = false,
+  icon
 }) => {
   if (showTruck) {
     return (
@@ -64,8 +66,9 @@ const TruckNavLink: React.FC<TruckNavLinkProps> = ({
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          className="relative block"
+          className="relative flex items-center gap-2"
         >
+          {icon && <span className="relative z-10 flex-shrink-0">{icon}</span>}
           <span className="relative z-10">{text}</span>
           
           {/* Active indicator line */}
