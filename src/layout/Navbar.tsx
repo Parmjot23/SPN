@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import TruckNavLink from './TruckNavLink';
-import { Menu, X, Truck } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
@@ -43,47 +43,58 @@ const Navbar: React.FC = () => {
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-out ${
         scrolled 
-          ? 'bg-white/85 dark:bg-gray-900/90 backdrop-blur-xl shadow-2xl border-b border-gray-200/50 dark:border-gray-700/50' 
+          ? 'bg-white/90 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl border-b border-gray-200/50 dark:border-gray-700/50' 
           : 'bg-black/20 backdrop-blur-md border-b border-white/10'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo with Icon */}
+          {/* Modern Business Name Logo */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="flex items-center space-x-3"
+            className="flex items-center"
           >
             <Link 
               to="/" 
-              className={`flex items-center space-x-3 group transition-all duration-500 ${
+              className={`group transition-all duration-500 ${
                 scrolled 
                   ? 'text-gray-900 dark:text-white' 
                   : 'text-white drop-shadow-lg'
               }`}
             >
-              <motion.div
-                whileHover={{ rotate: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className={`p-2 rounded-xl transition-all duration-500 ${
-                  scrolled 
-                    ? 'bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg' 
-                    : 'bg-white/20 backdrop-blur-sm'
-                }`}
-              >
-                <Truck className="w-6 h-6 text-white" />
-              </motion.div>
-              <div className="flex flex-col">
-                <span className="font-bold text-xl lg:text-2xl tracking-tight font-heading">
-                  SPN Logistics
-                </span>
-                <span className={`text-xs font-medium tracking-wide opacity-80 ${
-                  scrolled ? 'text-gray-600 dark:text-gray-400' : 'text-white/90'
-                }`}>
-                  Delivering Excellence
-                </span>
+              <div className="relative">
+                <motion.div
+                  className="flex flex-col"
+                  whileHover={{ y: -2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <span className={`font-black text-2xl lg:text-3xl tracking-tight font-heading transition-all duration-500 ${
+                    scrolled 
+                      ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 bg-clip-text text-transparent' 
+                      : 'text-white'
+                  }`}>
+                    SPN LOGISTICS
+                  </span>
+                  <span className={`text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-500 ${
+                    scrolled 
+                      ? 'text-gray-500 dark:text-gray-400' 
+                      : 'text-white/80'
+                  }`}>
+                    Trucking Excellence
+                  </span>
+                </motion.div>
+                
+                {/* Animated underline on hover */}
+                <motion.div
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 ${
+                    scrolled ? 'opacity-70' : 'opacity-50'
+                  }`}
+                  initial={{ width: 0 }}
+                  whileHover={{ width: '100%' }}
+                  transition={{ duration: 0.3 }}
+                />
               </div>
             </Link>
           </motion.div>
