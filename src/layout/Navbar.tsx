@@ -101,11 +101,13 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center">
-            <div className={`flex items-center space-x-2 p-2 rounded-2xl transition-all duration-500 ${
-              scrolled 
-                ? 'bg-gray-50/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30' 
-                : 'bg-white/10 backdrop-blur-md border border-white/20'
-            }`}>
+            <div
+              className={`flex items-center space-x-6 lg:space-x-8 p-2 rounded-2xl transition-all duration-500 ${
+                scrolled
+                  ? 'bg-gray-50/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30'
+                  : 'bg-white/10 backdrop-blur-md border border-white/20'
+              }`}
+            >
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.to}
@@ -113,13 +115,13 @@ const Navbar: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.2, duration: 0.6 }}
                 >
-                  <TruckNavLink 
-                    to={item.to} 
+                  <TruckNavLink
+                    to={item.to}
                     text={item.text}
                     className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium text-sm relative group ${
-                      scrolled 
-                        ? 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/80 dark:hover:bg-gray-700/80 hover:shadow-md' 
-                        : 'text-white/90 hover:text-white hover:bg-white/20 hover:backdrop-blur-md hover:shadow-lg'
+                      scrolled
+                        ? 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                        : 'text-white/90 hover:text-white'
                     }`}
                   />
                 </motion.div>

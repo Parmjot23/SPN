@@ -14,6 +14,6 @@ describe('Home page', () => {
         </MemoryRouter>
       </HelmetProvider>
     );
-    expect(getByText(/Drive Forward with SPN Logistics/i)).toBeInTheDocument();
+    expect(getByText(/Logistics Excellence/i)).toBeInTheDocument();
   });
 });

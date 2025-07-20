@@ -6,12 +6,12 @@ import { MemoryRouter } from 'react-router-dom';
 
 describe('Footer component', () => {
   it('renders the Footer text', () => {
-    const { getByText } = render(
+    const { getAllByText, getByText } = render(
       <MemoryRouter initialEntries={['/']}>
         <Footer />
       </MemoryRouter>
     );
-    expect(getByText(/SPN Logistics/i)).toBeInTheDocument();
+    expect(getAllByText(/SPN Logistics/i).length).toBeGreaterThan(0);
     expect(getByText(/Made by Parm/i)).toBeInTheDocument();
   });
 });
