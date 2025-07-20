@@ -56,7 +56,7 @@ const TruckNavLink: React.FC<TruckNavLinkProps> = ({
       to={to}
       onClick={onClick}
       className={({ isActive }) => {
-        const baseClasses = `relative font-medium transition-all duration-300 overflow-hidden ${className}`;
+        const baseClasses = `relative font-medium transition-all duration-300 overflow-hidden focus:outline-none focus:ring-0 ${className}`;
         const activeClasses = isActive ? 'text-blue-600 dark:text-blue-400 font-semibold' : '';
         return `${baseClasses} ${activeClasses}`;
       }}

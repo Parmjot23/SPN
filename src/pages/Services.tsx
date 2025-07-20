@@ -153,7 +153,7 @@ const Services: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-500" />
               
               {/* Content */}
-              <div className="relative h-full flex flex-col justify-end p-8">
+              <div className="relative h-full flex flex-col justify-end p-8 bg-black/50 backdrop-blur-sm rounded-b-3xl">
                 <motion.div
                   className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 mb-6 w-fit"
                   whileHover={{ scale: 1.1 }}
