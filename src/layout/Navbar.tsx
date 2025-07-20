@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import TruckNavLink from './TruckNavLink';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, Info, Briefcase, Package, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
@@ -29,11 +29,11 @@ const Navbar: React.FC = () => {
   }, [isHome]);
 
   const navItems = [
-    { to: '/', text: 'Home' },
-    { to: '/about', text: 'About' },
-    { to: '/careers', text: 'Careers' },
-    { to: '/services', text: 'Services' },
-    { to: '/contact', text: 'Contact' }
+    { to: '/', text: 'Home', icon: <Home size={18} /> },
+    { to: '/about', text: 'About', icon: <Info size={18} /> },
+    { to: '/careers', text: 'Careers', icon: <Briefcase size={18} /> },
+    { to: '/services', text: 'Services', icon: <Package size={18} /> },
+    { to: '/contact', text: 'Contact', icon: <Phone size={18} /> }
   ];
 
   return (
@@ -42,8 +42,8 @@ const Navbar: React.FC = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-out ${
-        scrolled 
-          ? 'bg-white/90 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl border-b border-gray-200/50 dark:border-gray-700/50' 
+        scrolled
+          ? 'bg-gradient-to-r from-white/90 to-gray-50/90 dark:from-gray-900/95 dark:to-gray-800/95 backdrop-blur-xl shadow-2xl border-b border-gray-200/50 dark:border-gray-700/50'
           : 'bg-black/20 backdrop-blur-md border-b border-white/10'
       }`}
     >
@@ -102,9 +102,9 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center">
             <div
-              className={`flex items-center space-x-6 lg:space-x-8 p-2 rounded-2xl transition-all duration-500 ${
+              className={`flex items-center space-x-6 lg:space-x-8 px-4 py-2 rounded-full shadow-md transition-colors duration-500 ${
                 scrolled
-                  ? 'bg-gray-50/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/30 dark:border-gray-700/30'
+                  ? 'bg-white/80 dark:bg-gray-800/60 backdrop-blur-lg border border-gray-200/40 dark:border-gray-700/40'
                   : 'bg-white/10 backdrop-blur-md border border-white/20'
               }`}
             >
@@ -118,7 +118,8 @@ const Navbar: React.FC = () => {
                   <TruckNavLink
                     to={item.to}
                     text={item.text}
-                    className={`px-6 py-3 rounded-xl transition-all duration-300 font-medium text-sm relative group ${
+                    icon={item.icon}
+                    className={`px-4 py-2 rounded-xl transition-all duration-300 font-medium text-base relative group ${
                       scrolled
                         ? 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
                         : 'text-white/90 hover:text-white'
@@ -171,8 +172,8 @@ const Navbar: React.FC = () => {
                   key={item.to}
                   initial={{ opacity: 0, x: -30, scale: 0.9 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
-                  transition={{ 
-                    delay: index * 0.1, 
+                  transition={{
+                    delay: index * 0.1,
                     duration: 0.4,
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
@@ -180,8 +181,9 @@ const Navbar: React.FC = () => {
                   <TruckNavLink
                     to={item.to}
                     text={item.text}
+                    icon={item.icon}
                     onClick={() => setIsOpen(false)}
-                    className="block w-full text-left px-6 py-4 rounded-xl text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 dark:hover:from-blue-900/20 dark:hover:to-purple-900/20 transition-all duration-300 font-medium text-lg border border-transparent hover:border-blue-200/30 dark:hover:border-blue-700/30 hover:shadow-lg"
+                    className="block w-full text-left px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 dark:hover:from-blue-900/20 dark:hover:to-purple-900/20 transition-all duration-300 font-medium text-base border border-transparent hover:border-blue-200/30 dark:hover:border-blue-700/30 hover:shadow-lg"
                   />
                 </motion.div>
               ))}
