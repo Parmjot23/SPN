@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
   const { sendEmail } = useFormEmail();
 
   const onSubmit: SubmitHandler<ContactFormType> = async (data) => {
-    const { success, error } = await sendEmail({
+    const { success } = await sendEmail({
       ...data,
       subject: 'Contact Form Submission'
     });
@@ -57,7 +57,6 @@ const Contact: React.FC = () => {
       toast.success('Message sent successfully!');
     } else {
       toast.error('Something went wrong. Please try again later.');
-      console.error(error);
     }
   };
 

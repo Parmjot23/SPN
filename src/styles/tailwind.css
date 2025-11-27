@@ -2,43 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Custom base styles */
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
   body {
     @apply antialiased;
+  }
+
+  *:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-opacity-50;
+  }
+
+  button:focus,
+  a:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-opacity-50 ring-offset-2;
   }
 }
 
 /* Custom component styles */
 @layer components {
+
   /* Modern truck navigation link styles */
   .truck-nav-link {
     @apply inline-block transform transition-all duration-300 text-white font-body drop-shadow-md;
   }
-  
+
   .truck-nav-link:hover {
     @apply text-blue-300 scale-105 drop-shadow-lg;
   }
-  
+
   .truck-nav-link.active {
     @apply text-blue-400 font-semibold;
   }
-  
+
   .truck-nav-link svg {
     @apply fill-current stroke-current drop-shadow-sm transition-all duration-300;
   }
-  
+
   .truck-nav-link:hover svg {
     @apply drop-shadow-lg;
   }
-  
+
   .truck-text {
     font-family: 'Inter', sans-serif;
     font-size: 1.125rem;
@@ -49,19 +51,19 @@
     dominant-baseline: middle;
     font-style: normal;
   }
-  
+
   .truck-body,
   .truck-cab {
     stroke-width: 2;
     stroke: currentColor;
     fill: none;
   }
-  
+
   .truck-wheel {
     fill: currentColor;
     stroke: none;
   }
-  
+
   .truck-door {
     stroke-width: 2;
     fill: none;
@@ -71,11 +73,11 @@
   .custom-scrollbar::-webkit-scrollbar {
     @apply w-2;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-track {
     @apply bg-neutral-100 dark:bg-neutral-800 rounded-full;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-primary-400 hover:bg-primary-500 rounded-full;
   }
@@ -84,11 +86,11 @@
   .slick-dots li button:before {
     @apply text-primary-400 text-lg;
   }
-  
+
   .slick-dots li.slick-active button:before {
     @apply text-primary-500;
   }
-  
+
   .slick-prev:before,
   .slick-next:before {
     @apply text-primary-400 text-xl;
@@ -97,11 +99,12 @@
 
 /* Custom utility styles */
 @layer utilities {
+
   /* Glass effect */
   .glass {
     @apply bg-white/10 backdrop-blur-lg border border-white/20;
   }
-  
+
   .glass-dark {
     @apply bg-black/10 backdrop-blur-lg border border-black/20;
   }
@@ -115,7 +118,7 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
   }
@@ -123,9 +126,12 @@
 
 /* Custom animations */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
@@ -135,19 +141,8 @@
   from {
     box-shadow: 0 0 20px theme('colors.primary.400');
   }
+
   to {
     box-shadow: 0 0 30px theme('colors.primary.500'), 0 0 40px theme('colors.primary.400');
-  }
-}
-
-/* Enhanced focus styles */
-@layer base {
-  *:focus {
-    @apply outline-none ring-2 ring-primary-500 ring-opacity-50;
-  }
-  
-  button:focus,
-  a:focus {
-    @apply outline-none ring-2 ring-primary-500 ring-opacity-50 ring-offset-2;
   }
 }

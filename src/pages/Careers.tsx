@@ -32,7 +32,7 @@ const Careers: React.FC = () => {
   const prevStep = () => setStep((prev) => prev - 1);
 
   const onSubmit = async (data: DriverFormType) => {
-    const { success, error } = await sendEmail({
+    const { success } = await sendEmail({
       ...data,
       subject: 'Driver Application'
     });
@@ -42,7 +42,6 @@ const Careers: React.FC = () => {
       setStep(1);
     } else {
       toast.error('Something went wrong. Please try again later.');
-      console.error(error);
     }
   };
 

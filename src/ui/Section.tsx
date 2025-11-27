@@ -6,8 +6,8 @@ interface SectionProps {
   subtitle?: string;
   children: React.ReactNode;
   className?: string;
-  background?: 'default' | 'gradient' | 'dark' | 'light';
-  spacing?: 'sm' | 'md' | 'lg' | 'xl';
+  background?: 'default' | 'gradient' | 'dark' | 'light' | 'premium';
+  spacing?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   titleAlign?: 'left' | 'center' | 'right';
 }
 
@@ -24,14 +24,16 @@ const Section: React.FC<SectionProps> = ({
     default: 'bg-transparent',
     gradient: 'bg-gradient-to-b from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-800',
     dark: 'bg-neutral-900 text-white',
-    light: 'bg-neutral-50 dark:bg-neutral-800'
+    light: 'bg-neutral-50 dark:bg-neutral-800',
+    premium: 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950 dark:via-purple-950 dark:to-pink-950'
   };
 
   const spacings = {
     sm: 'py-8',
     md: 'py-12',
     lg: 'py-16',
-    xl: 'py-24'
+    xl: 'py-24',
+    '2xl': 'py-32'
   };
 
   const alignments = {
@@ -44,7 +46,7 @@ const Section: React.FC<SectionProps> = ({
     <section className={`${backgrounds[background]} ${spacings[spacing]} ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {(title || subtitle) && (
-          <motion.div 
+          <motion.div
             className={`mb-12 ${alignments[titleAlign]}`}
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -63,7 +65,7 @@ const Section: React.FC<SectionProps> = ({
             )}
           </motion.div>
         )}
-        
+
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}

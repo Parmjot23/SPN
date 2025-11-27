@@ -8,7 +8,7 @@ interface CardProps {
   onClick?: () => void;
   className?: string;
   icon?: React.ReactNode;
-  variant?: 'default' | 'elevated' | 'outline' | 'gradient';
+  variant?: 'default' | 'elevated' | 'outline' | 'gradient' | 'glass';
   hoverable?: boolean;
 }
 
@@ -22,17 +22,18 @@ const Card: React.FC<CardProps> = ({
   variant = 'default',
   hoverable = true,
 }) => {
-  const baseClass = 'p-6 rounded-2xl transition-all duration-300';
-  
+  const baseClass = 'p-6 lg:p-8 rounded-2xl transition-all duration-300';
+
   const variants = {
     default: 'bg-gradient-card dark:bg-gradient-dark-card shadow-card border border-neutral-200 dark:border-neutral-700',
-    elevated: 'bg-white dark:bg-darkBg2 shadow-lg hover:shadow-xl border-0',
+    elevated: 'bg-white dark:bg-darkBg2 shadow-premium hover:shadow-premium-lg border-0',
     outline: 'bg-transparent border-2 border-neutral-200 dark:border-neutral-700 hover:border-primary-300 dark:hover:border-primary-600',
-    gradient: 'bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 border border-primary-200 dark:border-primary-800'
+    gradient: 'bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 border border-primary-200 dark:border-primary-800 shadow-lg',
+    glass: 'bg-white/10 dark:bg-white/5 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-glass'
   };
 
   const hoverEffects = hoverable ? {
-    whileHover: { 
+    whileHover: {
       scale: 1.02,
       y: -4,
       transition: { duration: 0.2 }
@@ -43,15 +44,13 @@ const Card: React.FC<CardProps> = ({
   return (
     <motion.div
       {...hoverEffects}
-      className={`${baseClass} ${variants[variant]} ${
-        onClick ? 'cursor-pointer' : ''
-      } ${
-        hoverable ? 'hover:shadow-card-hover' : ''
-      } ${className}`}
+      className={`${baseClass} ${variants[variant]} ${onClick ? 'cursor-pointer' : ''
+        } ${hoverable ? 'hover:shadow-card-hover' : ''
+        } ${className}`}
       onClick={onClick}
     >
       {icon && (
-        <motion.div 
+        <motion.div
           className="mb-6 flex justify-center"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -62,7 +61,7 @@ const Card: React.FC<CardProps> = ({
           </div>
         </motion.div>
       )}
-      
+
       <motion.div
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -71,13 +70,13 @@ const Card: React.FC<CardProps> = ({
         <h3 className="text-xl font-bold mb-3 text-neutral-900 dark:text-neutral-100 font-heading">
           {title}
         </h3>
-        
+
         {subtitle && (
           <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4 font-body">
             {subtitle}
           </p>
         )}
-        
+
         {children && (
           <div className="text-neutral-700 dark:text-neutral-300 font-body">
             {children}
