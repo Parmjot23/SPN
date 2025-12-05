@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out ${scrolled
           ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-xl border-b border-gray-200 dark:border-gray-800'
-          : 'bg-transparent backdrop-blur-sm'
+          : 'bg-gradient-to-b from-gray-900/80 via-gray-900/40 to-transparent backdrop-blur-md'
         }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,10 +87,10 @@ const Navbar: React.FC = () => {
                   className={`group relative px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 flex items-center gap-2 ${pathname === item.to
                       ? scrolled
                         ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                        : 'text-white bg-white/10'
+                        : 'text-white bg-white/10 drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]'
                       : scrolled
                         ? 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                        : 'text-white hover:text-white hover:bg-white/10 drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]'
                     }`}
                 >
                   <span className="transition-transform duration-300 group-hover:scale-110">
