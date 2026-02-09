@@ -20,26 +20,22 @@ const contactSchema = z.object({
 type ContactFormType = z.infer<typeof contactSchema>;
 
 // Lazy load for Google Map
-const MapEmbed = React.lazy(() => {
-  return new Promise<{ default: React.FC }>((resolve) => {
-    setTimeout(() => {
-      resolve({
-        default: () => (
-          <iframe
-            title="SPN Logistics HQ"
-            src={mapURL}
-            width="100%"
-            height="450"
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="border-0"
-          />
-        )
-      });
-    }, 500); // Artificial delay for demo
-  });
-});
+const MapEmbed = React.lazy(() =>
+  Promise.resolve({
+    default: () => (
+      <iframe
+        title="SPN Logistics HQ"
+        src={mapURL}
+        width="100%"
+        height="450"
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        className="border-0"
+      />
+    )
+  })
+);
 
 const Contact: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<ContactFormType>({
@@ -64,6 +60,10 @@ const Contact: React.FC = () => {
     <>
       <Helmet>
         <title>SPN Logistics | Contact</title>
+        <meta
+          name="description"
+          content="Get in touch with SPN Logistics for quotes, dispatch support, or partnership inquiries."
+        />
       </Helmet>
       <Section>
         <h1 className="text-3xl font-bold text-primary-500 text-center mb-6">Contact Us</h1>
