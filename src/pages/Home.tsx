@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import CountUp from 'react-countup';
 import Section from '../ui/Section';
 import Card from '../ui/Card';
@@ -15,6 +15,7 @@ import reviewMen2 from '../assets/review_men2.png';
 import reviewMenSukhpreet from '../assets/review_men_sukhpreet.png';
 import reviewWomen from '../assets/review_women.png';
 import heroVideo from '../assets/mixkit-cargo-truck-driving-on-the-highway-28787-hd-ready.mp4';
+import heroPoster from '../assets/ChatGPT Image Jun 7, 2025, 03_02_08 PM.png';
 import Slider from 'react-slick';
 
 // For react-slick slider
@@ -23,6 +24,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const prefersReducedMotion = useReducedMotion();
   
   const testimonialSettings = {
     dots: true,
@@ -66,7 +68,11 @@ const Home: React.FC = () => {
     },
   ];
 
-  const partnerImages = [partnerImg1, partnerImg2, partnerImg3];
+  const partnerImages = [
+    { src: partnerImg1, alt: 'Partner company logo: Horizon Freight' },
+    { src: partnerImg2, alt: 'Partner company logo: Summit Distribution' },
+    { src: partnerImg3, alt: 'Partner company logo: Northlane Supply' }
+  ];
 
   const services = [
     {
@@ -138,21 +144,48 @@ const Home: React.FC = () => {
       <Helmet>
         <title>SPN Logistics - Reliable Trucking Services Across North America</title>
         <meta name="description" content="Professional trucking and logistics solutions with modern fleet, expert drivers, and 99% on-time delivery rate. Get your quote today!" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'SPN Logistics',
+            url: 'https://spnlogistics.com',
+            telephone: '+1-613-900-6194',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '1059 Chem. Legault',
+              addressLocality: 'Les Cèdres',
+              addressRegion: 'QC',
+              postalCode: 'J7T 1N8',
+              addressCountry: 'CA'
+            },
+            sameAs: []
+          })}
+        </script>
       </Helmet>
 
       {/* Enhanced Hero Section - Fixed responsive navigation issue */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
+          {prefersReducedMotion ? (
+            <img
+              src={heroPoster}
+              alt="SPN Logistics truck on the highway"
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={heroPoster}
+              className="w-full h-full object-cover"
+            >
+              <source src={heroVideo} type="video/mp4" />
+            </video>
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
           <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent"></div>
         </div>
@@ -522,8 +555,8 @@ const Home: React.FC = () => {
           {partnerImages.map((img, idx) => (
             <motion.img
               key={idx}
-              src={img}
-              alt="Partner logo"
+              src={img.src}
+              alt={img.alt}
               className="h-16 md:h-20 grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}

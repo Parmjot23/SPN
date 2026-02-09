@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import TruckNavLink from './TruckNavLink';
 import { Menu, X, Home, Info, Briefcase, Package, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Button from '../ui/Button';
 
 const Navbar: React.FC = () => {
   const { pathname } = useLocation();
@@ -46,6 +47,12 @@ const Navbar: React.FC = () => {
           : 'bg-gradient-to-b from-gray-900/80 via-gray-900/40 to-transparent backdrop-blur-md'
         }`}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-blue-600 focus:shadow-lg"
+      >
+        Skip to content
+      </a>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -112,6 +119,20 @@ const Navbar: React.FC = () => {
                 </Link>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navItems.length * 0.1, duration: 0.3 }}
+            >
+              <Link to="/contact">
+                <Button
+                  size="sm"
+                  className="ml-2"
+                >
+                  Request Quote
+                </Button>
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile menu button */}
@@ -123,6 +144,8 @@ const Navbar: React.FC = () => {
                 : 'text-white hover:bg-white/10'
               }`}
             aria-label="Toggle navigation"
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -148,6 +171,7 @@ const Navbar: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 shadow-2xl"
+            id="mobile-nav"
           >
             <div className="px-4 py-6 space-y-1 max-w-7xl mx-auto">
               {navItems.map((item, index) => (
@@ -179,6 +203,11 @@ const Navbar: React.FC = () => {
                   </Link>
                 </motion.div>
               ))}
+              <div className="pt-4">
+                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full justify-center">Request Quote</Button>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
